@@ -1,0 +1,45 @@
+<template>
+    <div>
+        <h1>Movies</h1>
+        <div class="flex flex-wrap justify-around">
+            <div v-for="actor in actors">
+                <actorcard :name="actor.name" :description="actor.description" :image="actor.image" />
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+import actorcard from '../components/actorcard.vue';
+import { useAuthStore } from '@/stores/auth'
+import { useFxStore } from '@/stores/fx'
+
+export default {
+    components: {
+        actorcard
+    },
+    data() {
+        return {
+            actors: []
+        }
+    },
+    mounted() {
+        useFxStore().loading = true;
+        const authStore = useAuthStore();
+        axios.get('http://127.0.0.1:8000/api/actors', {
+            headers: {
+                Authorization: `Bearer ${authStore.token}`
+            }
+        })
+
+            .then(response => {
+                this.actors = response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            .finally(() => {
+                useFxStore().loading = false;
+            })
+    }
+}
+</script>
