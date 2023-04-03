@@ -20,7 +20,7 @@
           <th class="px-4 py-2"></th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-gray-200">
+      <tbody class="divide-y h-screen divide-gray-200">
         <tr v-for="movie in movies">
           <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
             <div class="h-32 w-32 rounded-lg overflow-hidden shadow-md">
@@ -36,7 +36,7 @@
           <td class="whitespace-nowrap px-4 py-2 text-gray-700" v-if="movie.genres.length !== 0">
             <div class="flex flex-col">
             <span v-for="genre in movie.genres"
-              class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
+              class="whitespace-nowrap rounded-full flex justify-center items-center m-2 bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
               {{ genre.name }}
             </span>
   </div>

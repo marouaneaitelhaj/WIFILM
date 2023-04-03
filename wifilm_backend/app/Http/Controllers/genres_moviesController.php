@@ -24,7 +24,6 @@ class genres_moviesController extends Controller
         $genres_movies->genres_id = $request->genres_id;
         $genres_movies->movies_id = $request->movies_id;
         $genres_movies->save();
-        
     }
 
     /**
@@ -48,6 +47,9 @@ class genres_moviesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $genres_movies = genres_movies::where('movies_id', $id)->get();
+        foreach ($genres_movies as $genre_movie) {
+            $genre_movie->delete();
+        }
     }
 }

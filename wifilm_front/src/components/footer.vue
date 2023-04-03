@@ -1,5 +1,5 @@
 <template>
-    <footer aria-label="Site Footer" class="bg-black">
+    <!-- <footer aria-label="Site Footer" class="bg-black">
         <div class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
 
 
@@ -39,11 +39,6 @@
                                 fill="currentColor" />
                         </svg>
                     </div>
-
-                    <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-white lg:text-left">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-                        consequuntur amet culpa cum itaque neque.
-                    </p>
                 </div>
 
                 <nav aria-label="Footer Nav" class="mt-12 lg:mt-0">
@@ -74,10 +69,6 @@
                     </ul>
                 </nav>
             </div>
-
-            <p class="mt-12 text-center text-sm text-white lg:text-right">
-                Copyright &copy; 2022. All rights reserved.
-            </p>
         </div>
-    </footer>
+    </footer> -->
 </template>

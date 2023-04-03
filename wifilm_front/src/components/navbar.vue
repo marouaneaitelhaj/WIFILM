@@ -43,9 +43,7 @@
                     </nav>
 
                     <div v-if="isAuth" class="flex items-center gap-4">
-                        <p class="text-white">
-                            {{ user }}
-                        </p>
+                        
                         <div class="sm:flex sm:gap-4">
                             <a class="rounded-md bg-white px-5 py-2.5 text-sm font-medium text-black shadow"
                                 href="javascript:void(0)" v-on:click="logout()">
@@ -153,9 +151,6 @@ export default {
                 return false;
             }
         },
-        ...mapWritableState(useAuthStore, {
-            myOwnName: 'user',
-        }),
     },
     methods: {
         logout() {
@@ -166,12 +161,6 @@ export default {
             console.log('navbarbtn')
             const navbar = document.getElementById('SiteNav')
             navbar.classList.toggle('hidden')
-        }
-    },
-    watch: {
-        myOwnName() {
-            this.user = this.myOwnName
-            useAuthStore().loding = false
         }
     },
 }

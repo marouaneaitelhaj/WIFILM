@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('movies_id');
             $table->foreign('genres_id')->references('id')->on('genres');
             $table->foreign('movies_id')->references('id')->on('movies');
+            $table->unique(['genres_id', 'movies_id']);
             $table->timestamps();
         });
     }

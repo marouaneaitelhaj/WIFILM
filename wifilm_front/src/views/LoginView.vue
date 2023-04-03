@@ -8,9 +8,7 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
           eaque error neque ipsa culpa autem, at itaque nostrum!
         </p>
-        <p class="mt-4 text-red-500" v-if="error">
-          {{ error }}
-        </p>
+        
       </div>
 
       <form action="" class="mx-auto mt-8 mb-0 max-w-md space-y-4">
@@ -27,6 +25,9 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
               </svg>
+            </span>
+            <span class="mt-4 text-red-500" v-if="error">
+              {{ error.email }}
             </span>
           </div>
         </div>
@@ -47,6 +48,9 @@
                   d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
             </span>
+            <span class="mt-4 text-red-500" v-if="error">
+                {{ error.password }}
+              </span>
           </div>
         </div>
 

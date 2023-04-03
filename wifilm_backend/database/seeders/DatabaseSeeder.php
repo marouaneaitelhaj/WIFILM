@@ -18,14 +18,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // genres::factory(10)->create();
-        // movies::factory(10)->create();
-        // actors::factory(10)->create();
+        genres::factory(10)->create();
+        movies::factory(10)->create();
+        actors::factory(10)->create();
         // genres_movies::factory(10)->create();
         // reviews::factory(300)->create();
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@example.com',
+            'role' => 'admin',
+        ]);
     }
 }

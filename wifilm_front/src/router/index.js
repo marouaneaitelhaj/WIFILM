@@ -52,7 +52,6 @@ const router = createRouter({
       name: 'admin',
       component: () => import('../views/admin.vue'),
       meta: {
-        requiresAuth: true,
         requiresAdmin: true
       }
     },
@@ -72,33 +71,23 @@ const router = createRouter({
   ]
 })
 router.beforeEach((to, from, next) => {
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const currentUser = localStorage.getItem('token')
-  if (requiresAuth && !currentUser) {
+  const authStore = useAuthStore()
+  if (to.meta.requiresAuth && !authStore.token) {
     next('/login')
-  } else if (to.path === '/login' && currentUser) {
-    next('/')
-  }
-  else if (to.path === '/signup' && currentUser) {
-    next('/')
-  }
-  else {
-    requiresAuth
+  } else if (to.meta.requiresAdmin) {
+    async function checkAdmin() {
+      await authStore.getUser()
+      if (authStore.role === 'admin') {
+        next()
+      } else {
+        next('/')
+      }
+    }
+    checkAdmin()
+  } else {
     next()
   }
 })
-// router.beforeEach(async (to, from, next) => {
-//   const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin)
-//   const user = await useAuthStore().getUser()
-//   const role = user.role || 'user'
-//   console.log(role)
-//   console.log(requiresAdmin)
-//   if (requiresAdmin && role !== 'admin') {
-//     next('/login')
-//   } else {
-//     next()
-//   }
-// })
 router.afterEach((to, from, next) => {
   document.title = to.meta.name || 'WiFilm'
 })

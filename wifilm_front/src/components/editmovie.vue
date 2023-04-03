@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <div class="relative">
-                        <span v-for="genre in selectedgenre"
+                        <span v-for="genre in selectedgenre" @click="DeleteGenre(genre)"
                             class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
                             {{ genre.name }}
                         </span>
@@ -132,6 +132,9 @@ export default {
         }
     },
     methods: {
+        DeleteGenre(genre) {
+            this.selectedgenre = this.selectedgenre.filter(item => item.id !== genre.id);
+        },
         addgenre(genre) {
             if (this.selectedgenre.length < 3) {
                 if (this.selectedgenre.includes(genre)) {
@@ -196,15 +199,28 @@ export default {
                 .then(response => {
                     console.log(response);
                     this.$parent.getmovies();
+                    this.deleteallgenres();
                     for (let i = 0; i < this.selectedgenre.length; i++) {
                         this.insertintogenresmovies(this.selectedgenre[i].id);
                     }
                 })
-
-                .then(response => {
-                    console.log(response)
+                .catch(error => {
+                    console.log(error);
+                })
+                .finally(() => {
+                    this.$parent.getmovies()
                 })
 
+        },
+        deleteallgenres() {
+            axios.delete('http://127.0.0.1:8000/api/genresmovies/' + this.id, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+                .then(response => {
+                    console.log(response);
+                })
         },
         insertintogenresmovies(selectedgenre) {
             axios.post('http://127.0.0.1:8000/api/genresmovies',

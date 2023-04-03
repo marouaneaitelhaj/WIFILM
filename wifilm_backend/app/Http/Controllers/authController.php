@@ -25,7 +25,9 @@ class authController extends Controller
         $user = User::where('email', $request->email)->first();
         if (!$user) {
             return response()->json([
-                'message' => 'wrong email'
+                'message' => [
+                    'email' => 'email not found'
+                ]
             ], 401);
         }
         if (Hash::check($request->password, $user->password)) {
@@ -34,7 +36,9 @@ class authController extends Controller
             ]);
         } else {
             return response()->json([
-                'message' => 'wrong password'
+                'message' => [
+                    'password' => 'password is incorrect'
+                ]
             ], 401);
         }
     }
