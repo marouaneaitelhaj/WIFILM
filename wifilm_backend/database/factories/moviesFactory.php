@@ -20,7 +20,6 @@ class moviesFactory extends Factory
             'name' => $this->faker->name,
             'description' => $this->faker->text,
             'image' => 'https://picsum.photos/200/300',
-            'slug' => $this->faker->text,
         ];
     }
 }

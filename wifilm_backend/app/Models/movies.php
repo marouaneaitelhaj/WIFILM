@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class movies extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+        'image',
+    ];
     public function comments()
     {
         return $this->hasMany(comments::class);

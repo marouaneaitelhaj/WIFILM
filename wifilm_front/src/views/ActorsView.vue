@@ -9,7 +9,7 @@
     </div>
 </template>
 <script>
-import actorcard from '../components/actorcard.vue';
+import actorcard from '../cards/actorcard.vue';
 import { useAuthStore } from '@/stores/auth'
 import { useFxStore } from '@/stores/fx'
 

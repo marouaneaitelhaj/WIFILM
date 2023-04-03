@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import editgenre from './editgenre.vue';
+import editgenre from '../forms/editgenre.vue';
 export default {
   data() {
     return {

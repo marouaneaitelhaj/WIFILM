@@ -57,7 +57,7 @@
   </div>
 </template>
 <script>
-import editmovie from './editmovie.vue';
+import editmovie from '../forms/editmovie.vue';
 export default {
   data() {
     return {

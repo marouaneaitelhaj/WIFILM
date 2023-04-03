@@ -20,7 +20,13 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedata = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+        $newmovies = movies::create($validatedata);
+        return response()->json($newmovies, 201);
     }
 
     /**

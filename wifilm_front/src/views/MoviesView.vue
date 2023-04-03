@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-import MovieCard from '@/components/movieCard.vue'
+import MovieCard from '@/cards/movieCard.vue'
 import { useAuthStore } from '@/stores/auth'
 import { useFxStore } from '@/stores/fx'
 import router from '../router'
