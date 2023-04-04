@@ -1,5 +1,5 @@
 <template>
-    <editgenre v-if="isformopen" :id="formid"></editgenre>
+  <editgenre v-if="isformopen" :id="formid"></editgenre>
   <div class="bg-white overflow-x-auto">
     <p class="text-white">admingenres</p>
     <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
@@ -19,7 +19,7 @@
       </thead>
 
       <tbody class="divide-y h-screen divide-gray-200">
-        <tr v-for="genre in genres">
+        <tr v-for="genre in genres" class="max-w-2xl">
           <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
             <div class="h-32 w-32 rounded-lg overflow-hidden shadow-md">
               <img :src="genre.image" alt="Image" class="w-full h-full object-cover">

@@ -1,12 +1,14 @@
 <template>
     <div>
         <h1>Movies</h1>
-        <div class="flex flex-wrap justify-around">
-            <div v-for="movie in movies">
-                <MovieCard @click="gotomovie(movie.id)" :name="movie.name" :genres="movie.genres"
-                    :description="movie.description" :image="movie.image" />
+        <!-- <div class="flex justify-center w-full"> -->
+            <div class="flex flex-wrap justify-center">
+                <div v-for="movie in movies">
+                    <MovieCard @click="gotomovie(movie.id)" :name="movie.name" :genres="movie.genres"
+                        :description="movie.description" :image="movie.image" />
+                </div>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 </template>
 <script>

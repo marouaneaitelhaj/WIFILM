@@ -8,13 +8,14 @@ import { mapWritableState } from 'pinia'
 import ftr from './components/footer.vue'
 
 export default {
-  
+
   data() {
     return {
       loading: useFxStore().loading || false,
     }
   },
   mounted() {
+      
     useAuthStore().getUser()
   },
   components: {
@@ -32,7 +33,7 @@ export default {
       this.loading = useFxStore().loading;
     },
   },
-  
+
 }
 
 </script>

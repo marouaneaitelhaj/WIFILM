@@ -22,7 +22,7 @@ class MoviesController extends Controller
     {
         $validatedata = $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description' => 'required|min:10',
             'image' => 'required',
         ]);
         $newmovies = movies::create($validatedata);

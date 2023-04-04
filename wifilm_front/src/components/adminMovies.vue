@@ -35,17 +35,17 @@
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700" v-if="movie.genres.length !== 0">
             <div class="flex flex-col">
-            <span v-for="genre in movie.genres"
-              class="whitespace-nowrap rounded-full flex justify-center items-center m-2 bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
-              {{ genre.name }}
-            </span>
-  </div>
+              <span v-for="genre in movie.genres"
+                class="whitespace-nowrap rounded-full flex justify-center items-center m-2 bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
+                {{ genre.name }}
+              </span>
+            </div>
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700" v-if="movie.genres.length == 0">
             No genre
           </td>
           <td class="whitespace-nowrap px-4 py-2">
-            <a href="#" @click="openform(movie.id)"
+            <a href="javascript:void(0)" @click="openform(movie.id)"
               class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
               Edit
             </a>
@@ -71,7 +71,6 @@ export default {
     editmovie
   },
   mounted() {
-
     this.getmovies();
 
   },

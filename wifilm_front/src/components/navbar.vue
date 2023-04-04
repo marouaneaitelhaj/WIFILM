@@ -43,7 +43,7 @@
                     </nav>
 
                     <div v-if="isAuth" class="flex items-center gap-4">
-                        
+
                         <div class="sm:flex sm:gap-4">
                             <a class="rounded-md bg-white px-5 py-2.5 text-sm font-medium text-black shadow"
                                 href="javascript:void(0)" v-on:click="logout()">
@@ -91,8 +91,8 @@
                 </div>
 
             </div>
-            <nav aria-label="Site Nav" id="SiteNav" class=" hidden md:hidden">
-                <ul class="animate-ul flex flex-col items-center gap-6 text-sm">
+            <nav aria-label="Site Nav" id="SiteNav" class=" w-full bg-black z-30  h-48 hidden md:hidden">
+                <ul class="animate-ul flex  flex-col justify-between  items-center h-full w-full text-sm">
                     <li>
                         <RouterLink class="text-white transition hover:text-white/75" to="./">
                             Home
@@ -117,7 +117,7 @@
                         </RouterLink>
                     </li>
                     <li class="block sm:hidden">
-                        <RouterLink class="text-white transition hover:text-white/75" to="Register">
+                        <RouterLink class="text-white mb-8 transition hover:text-white/75" to="signup">
                             Register
                         </RouterLink>
                     </li>

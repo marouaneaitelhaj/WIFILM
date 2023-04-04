@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'blur-sm': getmoviestatus }"
+    <div 
         class="fixed drop-shadow-2xl top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
         <div class="bg-white mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="flex justify-end" @click="close">
@@ -27,6 +27,9 @@
                                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
                         </span>
+                        <span v-for="errorName in errors.name" class="text-red-600">
+                            {{ errorName }}
+                        </span>
                     </div>
                 </div>
                 <div>
@@ -41,6 +44,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
+                        </span>
+                        <span v-for="errorName in errors.description" class="text-red-600">
+                            {{ errorName }}
                         </span>
                     </div>
                 </div>
@@ -81,6 +87,9 @@
                                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
                         </span>
+                        <span v-for="errorName in errors.image" class="text-red-600">
+                            {{ errorName }}
+                        </span>
                     </div>
                 </div>
 
@@ -96,11 +105,6 @@
 </template>
 <script>
 export default {
-    computed: {
-        getmoviestatus() {
-            return this.$parent.getmoviestatus;
-        }
-    },
     data() {
         return {
             name: '',
@@ -111,6 +115,7 @@ export default {
             genre: '',
             selectedgenre: [],
             id: '',
+            errors: []
         }
     },
     watch: {
@@ -155,7 +160,6 @@ export default {
             this.$parent.openedform = '';
         },
         add() {
-            this.$parent.getmoviestatus = true;
             axios.post('http://127.0.0.1:8000/api/movies',
                 {
                     "name": this.name,
@@ -176,10 +180,8 @@ export default {
                     }
                 })
                 .catch(error => {
-                    console.log(error);
-                })
-                .finally(() => {
-                    this.$parent.getmovies()
+                    this.errors = error.response.data.errors;
+                    console.log(this.errors);
                 })
 
         },

@@ -20,7 +20,16 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|min:3',
+            'image' => 'required',
+            'description' => 'required|min:3',
+        ]);
+        $genres = new genres();
+        $genres->name = $request->name;
+        $genres->image = $request->image;
+        $genres->description = $request->description;
+        $genres->save();
     }
     public function searshofgenres($text)
     {
@@ -40,12 +49,16 @@ class GenreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        die(var_dump($request->genres));
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'image' => 'required',
         ]);
-        genres::where('id', $id)->update('name', $request->name, 'description', $request->description, 'image', $request->image);
+        $genres = genres::find($id);
+        $genres->name = $request->name;
+        $genres->image = $request->image;
+        $genres->description = $request->description;
+        $genres->save();
     }
     
 

@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'blur-sm': getmoviestatus }"
+    <div 
         class="fixed drop-shadow-2xl top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
         <div class="bg-white mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="flex justify-end" @click="close">
@@ -97,11 +97,6 @@
 </template>
 <script>
 export default {
-    computed: {
-        getmoviestatus() {
-            return this.$parent.getmoviestatus;
-        }
-    },
     data() {
         return {
             name: '',
@@ -183,7 +178,6 @@ export default {
             this.$parent.isformopen = false;
         },
         edit() {
-            this.$parent.getmoviestatus = true;
             axios.put('http://127.0.0.1:8000/api/movies/' + this.id,
                 {
                     "name": this.name,

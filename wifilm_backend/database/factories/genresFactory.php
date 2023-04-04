@@ -19,7 +19,6 @@ class genresFactory extends Factory
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
-            'slug' => $this->faker->text,
             'image' => 'https://picsum.photos/200/300',
         ];
     }
