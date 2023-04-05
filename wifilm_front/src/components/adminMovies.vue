@@ -1,12 +1,11 @@
 <template>
   <editmovie v-if="isformopen" :id="formid"></editmovie>
-  <div class="bg-white overflow-x-auto">
-    <p class="text-white">adminMovies</p>
+  <div class="mx-10 my-4 bg-white overflow-x-auto">
     <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
       <thead>
         <tr>
           <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-            Name
+            Image
           </th>
           <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
             Name
@@ -48,6 +47,10 @@
             <a href="javascript:void(0)" @click="openform(movie.id)"
               class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
               Edit
+            </a>
+            <a href="javascript:void(0)" @click="delete(movie.id)"
+              class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+              Delete
             </a>
           </td>
         </tr>
@@ -97,6 +100,21 @@ export default {
     openform(id) {
       this.formid = id;
       this.isformopen = true;
+    },
+    delete(id) {
+      console.log("qklsjdqskld")
+      axios.delete("http://127.0.0.1:8000/api/movies/" + id, {
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+      })
+      .then(res => {
+        console.log(res)
+        this.getmovies();
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
   }
 }

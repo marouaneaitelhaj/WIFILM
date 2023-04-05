@@ -20,7 +20,16 @@ class ActorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|min:3',
+            'image' => 'required',
+            'description' => 'required|min:3',
+        ]);
+        $actors = new actors();
+        $actors->name = $request->name;
+        $actors->image = $request->image;
+        $actors->description = $request->description;
+        $actors->save();
     }
 
     /**
@@ -28,7 +37,7 @@ class ActorsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return actors::find($id);
     }
 
     /**
@@ -36,7 +45,16 @@ class ActorsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+        $actors = actors::find($id);
+        $actors->name = $request->name;
+        $actors->image = $request->image;
+        $actors->description = $request->description;
+        $actors->save();
     }
 
     /**

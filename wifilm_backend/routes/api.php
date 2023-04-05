@@ -43,6 +43,5 @@ Route::middleware('auth:sanctum')->group(
         Route::apiResource('genresmovies', genres_moviesController::class);
         Route::get('searshofgenres/{text}', [GenreController::class, 'searshofgenres']);
         Route::post('check', [reviewsController::class, 'check']);
-
     }
 );

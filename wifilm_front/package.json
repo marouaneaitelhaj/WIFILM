@@ -10,6 +10,7 @@
   "dependencies": {
     "@cloudinary/url-gen": "^1.9.2",
     "@cloudinary/vue": "^1.11.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "chart.js": "^4.2.1",
     "flowbite": "^1.6.4",
     "jsonwebtoken": "^9.0.0",
