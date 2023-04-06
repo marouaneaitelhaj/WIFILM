@@ -1,26 +1,17 @@
 <template>
-  <section class=" bg-black">
-    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-      <div class="mx-auto max-w-xl text-center">
-        <h1 class="text-3xl text-white font-extrabold sm:text-5xl">
-          Wifilm....
-          <br>
-          <strong class="font-extrabold text-gray-500 sm:block">
-            I'm not in danger i am the danger.
-          </strong>
+  <section class="">
+    <video muted class="w-screen h-screen object-cover -z-20 brightness-25 fixed top-0" autoplay>
+      <source
+        src="https://imdb-video.media-imdb.com/vi338798873/1434659607842-pgv4ql-1616202355944.mp4?Expires=1680901179&Signature=WKWjdgHQhc2~a666tMh7IuLG61hYsuyGdQk1NtO0QT~pVSG46ohnKBvdj61zXSqJ80YqKKg1JLjFHUEf60HFEjViNirjdFfOU6A0x1IK6Vl3nIr~mX1gh2w8kvUlkf0hMPVfSx46uPre8ku6N2712MeLEfRcLV1D~M66vaUoukUiWDHRiDs1DbzLUGdE6hIG48HoIF8mT6okFW-M5T6e7egyfuSTg309WHCCJcTZGACsBl7Wh0lcP4NfLmRJi7iLI62AMMdsgr7XGw3-KIRQktdKeiCyEOqPdbh5iL7qQuj~PazYSy11dpq4DWNIeVOMBMYWtEVWsL1Qe8IADLb7Xg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+        type="video/mp4">
+    </video>
+    <div class="mx-auto  max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+      <div class="mx-auto  max-w-xl text-center">
+        <h1 class="text-3xl font-extrabold sm:text-5xl shadow-sm">
+          <span class="text-white">BETTER CALL </span>
+          <span class="text-yellow-400">WIFILM</span>
         </h1>
-
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <a class="block w-full rounded bg-gray-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-gray-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
-            href="/get-started">
-            Get Started
-          </a>
-
-          <a class="block w-full rounded px-12 py-3 text-sm font-medium text-gray-600 bg-gray-100 shadow hover:bg-gray-300 focus:outline-none focus:ring active:text-red-500 sm:w-auto"
-            href="/about">
-            Learn More
-          </a>
-        </div>
+        <button class="btn-primary bg-yellow-400 px-4 rounded-md rotate-12 font-bold">Join US</button>
       </div>
     </div>
   </section>
@@ -32,10 +23,10 @@
             src="https://static.onecms.io/wp-content/uploads/sites/6/2022/04/15/Better-Call-Saul-S6.jpg" alt="">
         </div>
       </div>
-      <div class="w-2/5 flex justify-center items-center max-sm:w-full">
+      <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
         <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl max-sm:text-sm">Better Call WiFilm</h1>
-          <p class="text-white  text-center max-sm:text-xs">The trials and tribulations of criminal lawyer Jimmy McGill in
+          <h1 class="text-white font-bold text-2xl ">Better Call WiFilm</h1>
+          <p class="text-white  text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
             the years leading
             up to his fateful run-in with
             Walter White and Jesse Pinkman.</p>
@@ -43,11 +34,10 @@
       </div>
     </div>
     <div class="w-full  flex max-sm:flex-col-reverse">
-
-      <div class="w-2/5 flex justify-center items-center max-sm:w-full">
+      <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
         <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl md:text-xl max-sm:text-sm">Better Call WiFilm</h1>
-          <p class="text-white text-center max-sm:text-xs">The trials and tribulations of criminal lawyer Jimmy McGill in
+          <h1 class="text-white font-bold text-2xl md:text-xl ">Better Call WiFilm</h1>
+          <p class="text-white text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
             the years leading
             up to his fateful run-in with
             Walter White and Jesse Pinkman.</p>
@@ -67,10 +57,10 @@
             src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/5B3UU2W7MVA6BKYWC7VRR7HWSA.jpg" alt="">
         </div>
       </div>
-      <div class="w-2/5 flex justify-center items-center max-sm:w-full">
+      <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
         <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl md:text-xl max-sm:text-sm">Better Call WiFilm</h1>
-          <p class="text-white text-center max-sm:text-xs">The trials and tribulations of criminal lawyer Jimmy McGill in
+          <h1 class="text-white font-bold text-2xl md:text-xl ">Better Call WiFilm</h1>
+          <p class="text-white text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
             the years leading
             up to his fateful run-in with
             Walter White and Jesse Pinkman.</p>
@@ -78,10 +68,10 @@
       </div>
     </div>
     <div class="w-full  flex max-sm:flex-col-reverse">
-      <div class="w-2/5 flex justify-center items-center max-sm:w-full">
+      <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
         <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl md:text-xl max-sm:text-sm max-sm:text-sm">Better Call WiFilm</h1>
-          <p class="text-white text-center max-sm:text-xs">The trials and tribulations of criminal lawyer Jimmy McGill in
+          <h1 class="text-white font-bold text-2xl md:text-xl  ">Better Call WiFilm</h1>
+          <p class="text-white text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
             the years leading
             up to his fateful run-in with
             Walter White and Jesse Pinkman.</p>

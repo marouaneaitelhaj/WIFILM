@@ -5,7 +5,13 @@ module.exports = {
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
+
   theme: {
-    extend: {},
+    extend: {
+      brightness: {
+        25: '.40',
+        175: '1.75',
+      }
+    },
   },
 }

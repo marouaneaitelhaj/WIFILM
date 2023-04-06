@@ -97,6 +97,6 @@ router.beforeEach((to, from, next) => {
   }
 })
 router.afterEach((to, from, next) => {
-  document.title = to.meta.name || 'WiFilm'
+  document.title = 'WiFilm'
 })
 export default router

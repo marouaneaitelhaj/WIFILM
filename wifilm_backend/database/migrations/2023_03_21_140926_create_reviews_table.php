@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('comment');
             $table->foreign('movies_id')->references('id')->on('movies');
             $table->foreign('users_id')->references('id')->on('users');
+            $table->unique(['movies_id', 'users_id']);
             $table->timestamps();
         });
     }

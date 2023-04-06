@@ -196,6 +196,9 @@ export default {
       .finally(() => {
         useFxStore().loading = false;
       });
+    this.checkifRated();
+    this.Analytics();
+    
   },
   components: {
     charts
@@ -236,12 +239,13 @@ export default {
           } else {
             this.can = false;
             this.myreviews = response.data.data;
+            this.Analytics();
           }
         })
         .catch(error => {
           console.log(error);
         })
-      this.Analytics();
+      
     },
     rating(rating) {
       this.rate = rating;
@@ -262,12 +266,13 @@ export default {
         }
       )
         .then(response => {
+          this.checkifRated();
           console.log(response);
         })
         .catch(error => {
           console.log(error);
         })
-      this.checkifRated();
+      
     },
     editrateMovie() {
       axios.put('http://127.0.0.1:8000/api/reviews/' + this.myreviews.id,
@@ -286,11 +291,12 @@ export default {
       )
         .then(response => {
           console.log(response);
+          this.checkifRated();
         })
         .catch(error => {
           console.log(error);
         })
-      this.checkifRated();
+      
     }
   },
   watch: {
