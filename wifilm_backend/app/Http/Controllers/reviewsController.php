@@ -63,6 +63,8 @@ class reviewsController extends Controller
             'fourstar' => (count($fourstar) / count($Analytics)) * 100,
             'fivestar' => (count($fivestar) / count($Analytics)) * 100,
             'average' => (count($onestar) + count($twostar) * 2 + count($threestar) * 3 + count($fourstar) * 4 + count($fivestar) * 5) / count($Analytics),
+            'positive' => (count($fivestar) + count($fourstar)) / count($Analytics) * 100,
+            'negative' => (count($onestar) + count($twostar) + count($threestar)) / count($Analytics) * 100,
         ], 200);
     }
 

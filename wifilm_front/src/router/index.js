@@ -24,6 +24,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/rank',
+      name: 'Top 10',
+      component: () => import('../views/RankView.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: '/Movies/:id',
       name: 'movie',
       component: () => import('../views/detailMovie.vue'),

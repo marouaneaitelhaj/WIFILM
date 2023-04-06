@@ -50,6 +50,6 @@ class MoviesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        movies::where('id', $id)->delete();
     }
 }

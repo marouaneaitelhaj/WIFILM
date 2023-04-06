@@ -62,6 +62,7 @@ class ActorsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $actors = actors::find($id);
+        $actors->delete();
     }
 }

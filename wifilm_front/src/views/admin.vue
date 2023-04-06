@@ -1,6 +1,6 @@
 <template>
-    <div class="">
-        <ul class="flex border-b border-gray-100">
+    <div class="h-full">
+        <ul class="flex border-b border-gray-100 h-full">
             <li class="flex-1">
                 <a href="javascript:void(0)" @click="opencrud('movies')" class="relative block p-4" to="admin/Movies">
                     <span class="absolute inset-x-0 -bottom-px h-1 w-full transition-all duration-500"
@@ -18,7 +18,7 @@
                         :class="{ 'bg-pink-600': component == 'genres' }"></span>
 
                     <div class="flex items-center justify-center gap-4">
-                       
+
 
                         <span class="text-sm font-medium text-white"> Genres </span>
                     </div>
@@ -31,7 +31,7 @@
                         :class="{ 'bg-pink-600': component == 'actors' }"></span>
 
                     <div class="flex items-center justify-center gap-4">
-                      
+
 
                         <span class="text-sm font-medium text-white"> actors </span>
                     </div>
@@ -45,7 +45,7 @@
                     </span>
 
                     <div class="flex items-center justify-center gap-4">
-                    
+
 
                         <span class="text-sm font-medium text-white"> Add </span>
                     </div>
@@ -56,6 +56,9 @@
         <admingenres v-if="component == 'genres'" />
         <adminactors v-if="component == 'actors'" />
         <adminadd v-if="component == 'add'" />
+        <div v-if="component == ''" class="flex justify-center py-64 font-bold text-3xl">
+            <h1 class="text-white">Heloo Admin</h1>
+        </div>
     </div>
 </template>
 <script>

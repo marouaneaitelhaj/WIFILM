@@ -45,13 +45,14 @@
           </td>
           <td class="whitespace-nowrap px-4 py-2">
             <a href="javascript:void(0)" @click="openform(movie.id)"
-              class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+              class="inline-block mr-2 rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
               Edit
             </a>
-            <a href="javascript:void(0)" @click="delete(movie.id)"
-              class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+            <a href="javascript:void(0)" @click="destroy(movie.id)"
+              class="inline-block  ml-2 rounded bg-red-500 px-4 py-2 text-xs font-medium text-white hover:bg-red-400">
               Delete
             </a>
+
           </td>
         </tr>
 
@@ -101,20 +102,19 @@ export default {
       this.formid = id;
       this.isformopen = true;
     },
-    delete(id) {
-      console.log("qklsjdqskld")
+    destroy(id) {
       axios.delete("http://127.0.0.1:8000/api/movies/" + id, {
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
       })
-      .then(res => {
-        console.log(res)
-        this.getmovies();
-      })
-      .catch(err => {
-        console.log(err)
-      })
+        .then(res => {
+          console.log(res)
+          this.getmovies();
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }

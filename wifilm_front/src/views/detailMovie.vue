@@ -96,7 +96,7 @@
         <div class="lg:col-span-3">
           <div class="prose max-w-none">
             <p class="text-white">
-              {{ movie.description }}..
+              Charts
             </p>
           </div>
         </div>
@@ -109,6 +109,43 @@
       </div>
     </div>
   </section>
+  <section class="">
+    <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold text-white sm:text-4xl">
+          {{ movie.name }}
+        </h2>
+
+        <p class="mt-4 text-white sm:text-xl">
+          {{ movie.description }}..
+        </p>
+      </div>
+
+      <div class="mt-8 sm:mt-12">
+        <dl class="flex justify-between mx-5">
+          <div class="flex flex-col rounded-lg border mx-5 border-gray-100 px-4 py-8 w-2/4 text-center">
+            <dt class="order-last text-lg font-medium text-white">
+              WI
+            </dt>
+
+            <dd class="text-4xl font-extrabold text-yellow-400 md:text-5xl">
+              {{ AnalyticsData.positive }}%
+            </dd>
+          </div>
+          <div class="flex flex-col rounded-lg border mx-5 border-gray-100 px-4 py-8 w-2/4 text-center">
+            <dt class="order-last text-lg font-medium text-white">
+              NO
+            </dt>
+
+            <dd class="text-4xl font-extrabold text-yellow-400 md:text-5xl">
+              {{ AnalyticsData.negative }}%
+            
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
 </template>
 <script>
 import router from '../router';
@@ -117,7 +154,6 @@ import { useFxStore } from '@/stores/fx'
 import { mapWritableState } from 'pinia'
 import charts from '../components/charts.vue'
 export default {
-
   data() {
     return {
       movie: {},
@@ -135,6 +171,8 @@ export default {
         fourstar: 0,
         fivestar: 0,
         average: 0,
+        negative: 0,
+        positive: 0,
       },
     }
   },
