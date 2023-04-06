@@ -39,7 +39,7 @@
             </li>
 
             <li class="flex-1">
-                <a href="javascript:void(0)" @click="opencrud('add')" class="relative block p-4" to="">
+                <a href="javascript:void(0)" @click="opencrud('add')" class="relative block p-4" :to="{ name: 'home' }">
                     <span class="absolute inset-x-0 -bottom-px h-1 w-full transition-all duration-500"
                         :class="{ 'bg-pink-600': component == 'add' }">
                     </span>

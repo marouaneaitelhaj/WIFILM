@@ -4,7 +4,7 @@
         <!-- <div class="flex justify-center w-full"> -->
             <div class="flex flex-wrap justify-center">
                 <div v-for="movie in movies">
-                    <MovieCard @click="gotomovie(movie.id)" :name="movie.name" :genres="movie.genres"
+                    <MovieCard :id="movie.id" :name="movie.name" :genres="movie.genres"
                         :description="movie.description" :image="movie.image" />
                 </div>
             </div>
@@ -23,11 +23,6 @@ export default {
     data() {
         return {
             movies: []
-        }
-    },
-    methods: {
-        gotomovie(id) {
-            router.push({ name: 'movie', params: { id: id } })
         }
     },
     mounted() {

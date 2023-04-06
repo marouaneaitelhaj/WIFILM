@@ -171,8 +171,6 @@ export default {
         fourstar: 0,
         fivestar: 0,
         average: 0,
-        negative: 0,
-        positive: 0,
       },
     }
   },

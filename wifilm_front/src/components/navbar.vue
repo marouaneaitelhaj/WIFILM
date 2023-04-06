@@ -17,25 +17,25 @@
                     <nav aria-label="Site Nav" class="hidden md:block">
                         <ul class="flex items-center gap-6 text-sm">
                             <li>
-                                <RouterLink class="text-white transition hover:text-white/75" to="../">
+                                <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'home' }">
                                     Home
                                 </RouterLink>
                             </li>
 
                             <li>
-                                <RouterLink class="text-white transition hover:text-white/75" to="../Movies">
+                                <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'movies' }">
                                     Movies
                                 </RouterLink>
                             </li>
 
                             <li>
-                                <RouterLink class="text-white transition hover:text-white/75" to="../Actors">
+                                <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'actors' }">
                                     Actors
                                 </RouterLink>
                             </li>
 
                             <li>
-                                <RouterLink class="text-white transition hover:text-white/75" to="../About">
+                                <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'about' }">
                                     About
                                 </RouterLink>
                             </li>
@@ -64,13 +64,13 @@
                     <div v-else class="flex items-center gap-4">
                         <div class="sm:flex sm:gap-4">
                             <RouterLink class="rounded-md bg-black border px-5 py-2.5 text-sm font-medium text-white shadow"
-                                to="login">
+                            :to="{ name: 'login' }">
                                 Login
                             </RouterLink>
 
                             <div class="hidden sm:flex">
                                 <RouterLink class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-black"
-                                    to="signup">
+                                :to="{ name: 'signup' }">
                                     Register
                                 </RouterLink>
                             </div>
@@ -94,30 +94,30 @@
             <nav aria-label="Site Nav" id="SiteNav" class=" w-full bg-black z-30  h-48 hidden md:hidden">
                 <ul class="animate-ul flex  flex-col justify-between  items-center h-full w-full text-sm">
                     <li>
-                        <RouterLink class="text-white transition hover:text-white/75" to="./">
+                        <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'home' }">
                             Home
                         </RouterLink>
                     </li>
 
                     <li>
-                        <RouterLink class="text-white transition hover:text-white/75" to="Movies">
+                        <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'movies' }">
                             Movies
                         </RouterLink>
                     </li>
 
                     <li>
-                        <RouterLink class="text-white transition hover:text-white/75" to="Actors">
+                        <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'actors' }">
                             Actors
                         </RouterLink>
                     </li>
 
                     <li>
-                        <RouterLink class="text-white transition hover:text-white/75" to="About">
+                        <RouterLink class="text-white transition hover:text-white/75" :to="{ name: 'about' }">
                             About
                         </RouterLink>
                     </li>
                     <li class="block sm:hidden">
-                        <RouterLink class="text-white mb-8 transition hover:text-white/75" to="signup">
+                        <RouterLink class="text-white mb-8 transition hover:text-white/75" :to="{ name: 'home' }">
                             Register
                         </RouterLink>
                     </li>
