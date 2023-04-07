@@ -25,7 +25,7 @@ Wifilm is a web platform that allows users to rate movies, discover the rank of 
 Install my-project with npm
 
 ```bash
-Clone the repository: git clone https://github.com/your-username/wifilm.git
+Clone the repository: git clone https://github.com/marouaneaitelhaj/WiFiLm.git
 
 Install dependencies: composer install and npm install
 
