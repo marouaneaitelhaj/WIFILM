@@ -5,7 +5,7 @@
             <div class="flex flex-wrap justify-center">
                 <div v-for="movie in movies">
                     <MovieCard :id="movie.id" :name="movie.name" :genres="movie.genres"
-                        :description="movie.description" :image="movie.image" />
+                        :description="movie.description" :image="movie.image" :reviews="movie.reviews" />
                 </div>
             </div>
         <!-- </div> -->

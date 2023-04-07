@@ -12,7 +12,8 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        return response()->json(movies::with('genres')->get(), 200);
+        $movies = movies::with('genres')->with('reviews')->get();
+        return response()->json($movies, 200);
     }
 
     /**

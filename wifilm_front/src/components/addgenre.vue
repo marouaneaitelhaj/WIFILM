@@ -82,7 +82,6 @@ export default {
     },
     methods: {
         close() {
-            console.log('close');
             this.$parent.openedform = '';
         },
         Add() {
@@ -99,7 +98,6 @@ export default {
                 }
             )
                 .then(response => {
-                    console.log(response);
                     this.$parent.openedform = ''
                 })
         },

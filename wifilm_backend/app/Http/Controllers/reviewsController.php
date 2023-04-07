@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\movies;
 use App\Models\reviews;
 use Illuminate\Http\Request;
 
@@ -91,6 +92,14 @@ class reviewsController extends Controller
             'review' => $request->review,
             'comment' => $request->comment
         ]);
+    }
+    
+    public function bestmovies()
+    {
+        $bestmovie = movies::select('movies.*', );
+        return response()->json([
+            'bestmovie' => $bestmovie
+        ], 200);
     }
 
     /**

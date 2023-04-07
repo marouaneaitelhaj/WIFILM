@@ -3,7 +3,7 @@
         <div class="m-3 bg-zinc-900 flex justify-center items-center">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
                 <div>
-                    <img class="object-cover w-60 h-96 hover:brightness-75" :src="image" >
+                    <img class="object-cover w-60 h-96 hover:brightness-75" :src="image">
                 </div>
                 <div class="px-5 py-3">
                     <div class="flex">
@@ -14,7 +14,7 @@
                             </path>
                         </svg>
                         <span class="text-white">
-                            5.5
+                            {{ averageRate }}
                         </span>
                     </div>
                     <div class=" text-white text-lg mb-2">{{ name }}</div>
@@ -32,13 +32,31 @@
 import { RouterLink } from 'vue-router';
 
 export default {
+    data() {
+        return {
+            averageRate: 0
+        }
+    },
     props: {
         id: Number,
         name: String,
         description: String,
         image: String,
-        genres: Array
+        genres: Array,
+        reviews: Array
     },
-    components: { RouterLink }
+    mounted() {
+        var sum = 0;
+        for (let i = 0; i < this.reviews.length; i++) {
+            sum += this.reviews[i].review;
+        }
+        this.averageRate = sum / this.reviews.length;
+        if(isNaN(this.averageRate)){
+            this.averageRate = 0;
+        }
+    },
+    cpomponents: {
+        RouterLink
+    }
 }
 </script>
