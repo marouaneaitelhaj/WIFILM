@@ -5,6 +5,7 @@
 
       <div class="grid gap-8 lg:grid-cols-4 lg:items-start">
         <div class="lg:col-span-3">
+          
           <div class="relative mt-4">
             <img alt="Tee" :src="movie.image" class="h-72 w-full rounded-xl object-cover lg:h-[540px]" />
 
@@ -139,7 +140,7 @@
 
             <dd class="text-4xl font-extrabold text-yellow-400 md:text-5xl">
               {{ AnalyticsData.negative }}%
-            
+
             </dd>
           </div>
         </dl>
@@ -198,7 +199,7 @@ export default {
       });
     this.checkifRated();
     this.Analytics();
-    
+
   },
   components: {
     charts
@@ -245,7 +246,7 @@ export default {
         .catch(error => {
           console.log(error);
         })
-      
+
     },
     rating(rating) {
       this.rate = rating;
@@ -272,7 +273,7 @@ export default {
         .catch(error => {
           console.log(error);
         })
-      
+
     },
     editrateMovie() {
       axios.put('http://127.0.0.1:8000/api/reviews/' + this.myreviews.id,
@@ -296,7 +297,7 @@ export default {
         .catch(error => {
           console.log(error);
         })
-      
+
     }
   },
   watch: {

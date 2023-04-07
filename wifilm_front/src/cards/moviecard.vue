@@ -1,7 +1,10 @@
 <template>
     <RouterLink :to="{ name: 'movie', params: { id: id } }">
-        <div class="m-3 bg-zinc-900 flex justify-center items-center">
+        <div class="m-3 bg-zinc-900 flex relative justify-center items-center">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <div class="w-full flex justify-end absolute ">
+                    <span class="px-2 font-bold py-2 rounded-full bg-yellow-400 text-black ">#{{ rank }}</span>
+                </div>
                 <div>
                     <img class="object-cover w-60 h-96 hover:brightness-75" :src="image">
                 </div>
@@ -19,11 +22,6 @@
                     </div>
                     <div class=" text-white text-lg mb-2">{{ name }}</div>
                 </div>
-                <!-- <div class="px-6 py-4">
-                    <span v-for="genre in genres"
-                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#
-                        {{ genre.name.substring(0, 10) }}</span>
-                </div> -->
             </div>
         </div>
     </RouterLink>
@@ -43,7 +41,8 @@ export default {
         description: String,
         image: String,
         genres: Array,
-        reviews: Array
+        reviews: Array,
+        rank: Number
     },
     mounted() {
         var sum = 0;
@@ -51,7 +50,7 @@ export default {
             sum += this.reviews[i].review;
         }
         this.averageRate = sum / this.reviews.length;
-        if(isNaN(this.averageRate)){
+        if (isNaN(this.averageRate)) {
             this.averageRate = 0;
         }
     },

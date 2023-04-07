@@ -19,17 +19,6 @@ const router = createRouter({
       path: '/Movies',
       name: 'movies',
       component: () => import('../views/MoviesView.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/rank',
-      name: 'Top 10',
-      component: () => import('../views/RankView.vue'),
-      meta: {
-        requiresAuth: true
-      }
     },
     {
       path: '/Movies/:id',

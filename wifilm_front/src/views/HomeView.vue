@@ -1,9 +1,7 @@
 <template>
   <section class="">
     <video muted class="w-screen h-screen object-cover -z-20 brightness-25 fixed top-0" autoplay>
-      <source
-        src="https://imdb-video.media-imdb.com/vi338798873/1434659607842-pgv4ql-1616202355944.mp4?Expires=1680901179&Signature=WKWjdgHQhc2~a666tMh7IuLG61hYsuyGdQk1NtO0QT~pVSG46ohnKBvdj61zXSqJ80YqKKg1JLjFHUEf60HFEjViNirjdFfOU6A0x1IK6Vl3nIr~mX1gh2w8kvUlkf0hMPVfSx46uPre8ku6N2712MeLEfRcLV1D~M66vaUoukUiWDHRiDs1DbzLUGdE6hIG48HoIF8mT6okFW-M5T6e7egyfuSTg309WHCCJcTZGACsBl7Wh0lcP4NfLmRJi7iLI62AMMdsgr7XGw3-KIRQktdKeiCyEOqPdbh5iL7qQuj~PazYSy11dpq4DWNIeVOMBMYWtEVWsL1Qe8IADLb7Xg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
-        type="video/mp4">
+      <source src="https://imdb-video.media-imdb.com/vi338798873/1434659607842-pgv4ql-1616202355944.mp4?Expires=1680901179&Signature=WKWjdgHQhc2~a666tMh7IuLG61hYsuyGdQk1NtO0QT~pVSG46ohnKBvdj61zXSqJ80YqKKg1JLjFHUEf60HFEjViNirjdFfOU6A0x1IK6Vl3nIr~mX1gh2w8kvUlkf0hMPVfSx46uPre8ku6N2712MeLEfRcLV1D~M66vaUoukUiWDHRiDs1DbzLUGdE6hIG48HoIF8mT6okFW-M5T6e7egyfuSTg309WHCCJcTZGACsBl7Wh0lcP4NfLmRJi7iLI62AMMdsgr7XGw3-KIRQktdKeiCyEOqPdbh5iL7qQuj~PazYSy11dpq4DWNIeVOMBMYWtEVWsL1Qe8IADLb7Xg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" type="video/mp4">
     </video>
     <div class="mx-auto  max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
       <div class="mx-auto  max-w-xl text-center">

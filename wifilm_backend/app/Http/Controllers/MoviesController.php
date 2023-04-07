@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\movies;
+use Illuminate\Support\Facades\DB;
 
 class MoviesController extends Controller
 {
@@ -12,7 +13,10 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $movies = movies::with('genres')->with('reviews')->get();
+        $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
+            ->with('reviews')
+            ->orderByDesc('avg_rating')
+            ->get();
         return response()->json($movies, 200);
     }
 

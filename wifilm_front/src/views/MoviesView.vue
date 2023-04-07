@@ -1,13 +1,11 @@
 <template>
     <div>
-        <h1>Movies</h1>
-        <!-- <div class="flex justify-center w-full"> -->
-            <div class="flex flex-wrap justify-center">
-                <div v-for="movie in movies">
-                    <MovieCard :id="movie.id" :name="movie.name" :genres="movie.genres"
-                        :description="movie.description" :image="movie.image" :reviews="movie.reviews" />
-                </div>
+        <div class="flex flex-wrap justify-center">
+            <div v-for="(movie,i) in movies">
+                <MovieCard :id="movie.id" :rank="i+1" :name="movie.name" :genres="movie.genres" :description="movie.description"
+                :image="movie.image" :reviews="movie.reviews" />
             </div>
+        </div>
         <!-- </div> -->
     </div>
 </template>

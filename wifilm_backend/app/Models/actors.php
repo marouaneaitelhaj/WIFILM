@@ -15,6 +15,6 @@ class actors extends Model
     ];
     public function movies()
     {
-        return $this->belongsToMany(movies::class);
+        return $this->hasMany(movies::class);
     }
 }
