@@ -6,7 +6,7 @@
                 <i class="left-0 fa-solid text-xl fa-xmark"></i>
             </div>
             <div class="mx-auto max-w-lg text-center">
-                <h1 class="text-2xl font-bold sm:text-3xl">Update genre information!</h1>
+                <h1 class="text-2xl font-bold sm:text-3xl">Update Actor information!</h1>
 
             </div>
 
@@ -56,6 +56,31 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <div class="relative">
+                        <span v-for="movie in selectedmovie" @click="Deletemovie(movie)"
+                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
+                            {{ movie.name }}
+                        </span>
+                        <input type="text" v-model="movie"
+                            class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                            placeholder="drama , action" />
+
+                        <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="m-4">
+                        <span v-for="movie in movies" @click="addmovie(movie)"
+                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-green-700">
+                            {{ movie.name }}
                         </span>
                     </div>
                 </div>

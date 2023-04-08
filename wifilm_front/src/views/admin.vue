@@ -4,7 +4,7 @@
             <li class="flex-1">
                 <a href="javascript:void(0)" @click="opencrud('movies')" class="relative block p-4" to="admin/Movies">
                     <span class="absolute inset-x-0 -bottom-px h-1 w-full transition-all duration-500"
-                        :class="{ 'bg-pink-600': component == 'movies' }"></span>
+                        :class="{ 'bg-yellow-400': component == 'movies' }"></span>
 
                     <div class="flex items-center justify-center gap-4">
                         <span class="text-sm font-medium text-white"> Movies </span>
@@ -15,7 +15,7 @@
             <li class="flex-1">
                 <a href="javascript:void(0)" @click="opencrud('genres')" class="relative block p-4" to="admin/Movies">
                     <span class="absolute inset-x-0 -bottom-px h-1 w-full transition-all duration-500"
-                        :class="{ 'bg-pink-600': component == 'genres' }"></span>
+                        :class="{ 'bg-yellow-400': component == 'genres' }"></span>
 
                     <div class="flex items-center justify-center gap-4">
 
@@ -28,7 +28,7 @@
             <li class="flex-1">
                 <a href="javascript:void(0)" @click="opencrud('actors')" class="relative block p-4" to="">
                     <span class="absolute inset-x-0 -bottom-px h-1 w-full transition-all duration-500"
-                        :class="{ 'bg-pink-600': component == 'actors' }"></span>
+                        :class="{ 'bg-yellow-400': component == 'actors' }"></span>
 
                     <div class="flex items-center justify-center gap-4">
 
@@ -41,7 +41,7 @@
             <li class="flex-1">
                 <a href="javascript:void(0)" @click="opencrud('add')" class="relative block p-4" :to="{ name: 'home' }">
                     <span class="absolute inset-x-0 -bottom-px h-1 w-full transition-all duration-500"
-                        :class="{ 'bg-pink-600': component == 'add' }">
+                        :class="{ 'bg-yellow-400': component == 'add' }">
                     </span>
 
                     <div class="flex items-center justify-center gap-4">

@@ -12,7 +12,8 @@ class ActorsController extends Controller
      */
     public function index()
     {
-        return response()->json(actors::all(), 200);
+        $actors = actors::with('movies')->get();
+        return response()->json($actors, 200);
     }
 
     /**
@@ -37,7 +38,7 @@ class ActorsController extends Controller
      */
     public function show(string $id)
     {
-        return actors::find($id);
+        return actors::find($id)->with('movies')->get();
     }
 
     /**

@@ -19,7 +19,7 @@
           <th class="px-4 py-2"></th>
         </tr>
       </thead>
-      <tbody class="divide-y h-screen divide-gray-200">
+      <tbody class="divide-y divide-gray-200">
         <tr v-for="movie in movies">
           <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
             <div class="h-32 w-32 rounded-lg overflow-hidden shadow-md">

@@ -15,6 +15,7 @@ class MoviesController extends Controller
     {
         $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
             ->with('reviews')
+            ->with('genres')
             ->orderByDesc('avg_rating')
             ->get();
         return response()->json($movies, 200);

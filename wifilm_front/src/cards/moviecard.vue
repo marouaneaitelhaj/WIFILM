@@ -6,7 +6,7 @@
                     <span class="px-2 font-bold py-2 rounded-full bg-yellow-400 text-black ">#{{ rank }}</span>
                 </div>
                 <div>
-                    <img class="object-cover w-60 h-96 hover:brightness-75" :src="image">
+                    <img class="object-cover w-72 h-96 hover:brightness-75" :src="image">
                 </div>
                 <div class="px-5 py-3">
                     <div class="flex">
