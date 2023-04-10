@@ -8,7 +8,8 @@ export const useAuthStore = defineStore('auth', {
     user: null,
     id: null,
     role: null,
-    error: null
+    error: null,
+    NotChecked: true,
   }),
   actions: {
     async logout() {
@@ -41,29 +42,25 @@ export const useAuthStore = defineStore('auth', {
     },
     async getUser() {
       useFxStore().loading = true;
-      // if (this.token) {
-        await axios.get("http://127.0.0.1:8000/api/user", {
-          headers: {
-            Authorization: "Bearer " + this.token,
-          },
+      await axios.get("http://127.0.0.1:8000/api/user", {
+        headers: {
+          Authorization: "Bearer " + this.token,
+        },
 
+      })
+        .then((res) => {
+          this.user = res.data.name;
+          this.id = res.data.id;
+          this.role = res.data.role;
         })
-          .then((res) => {
-            this.user = res.data.name;
-            this.id = res.data.id;
-            this.role = res.data.role;
-          })
-          .catch((err) => {
-            console.log(err);
-            localStorage.removeItem('token');
-            this.token = null;
-          })
-          .finally(() => {
-            useFxStore().loading = false;
-          })
-      // } else {
-      //   useFxStore().loading = false;
-      // }
+        .catch((err) => {
+          console.log(err);
+          localStorage.removeItem('token');
+          this.token = null;
+        })
+        .finally(() => {
+          useFxStore().loading = false;
+        })
     },
     async login(email, password) {
       useFxStore().loading = true

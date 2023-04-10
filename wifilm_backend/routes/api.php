@@ -35,10 +35,10 @@ Route::post('AdminLogin', [adminsController::class, 'login']);
 //     function () {
 
 Route::apiResource('movies', MoviesController::class);
+Route::apiResource('actors', ActorsController::class);
 Route::middleware('auth:sanctum')->group(
     function () {
         Route::get('user', [authController::class, 'index']);
-        Route::apiResource('actors', ActorsController::class);
         Route::apiResource('actors_movies', actors_moviesController::class);
         Route::apiResource('reviews', reviewsController::class);
         Route::apiResource('genres', GenreController::class);

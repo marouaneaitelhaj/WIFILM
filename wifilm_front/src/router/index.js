@@ -60,10 +60,7 @@ const router = createRouter({
     {
       path: '/actors',
       name: 'actors',
-      component: () => import('../views/ActorsView.vue'),
-      meta: {
-        requiresAuth: true
-      }
+      component: () => import('../views/ActorsView.vue')
     },
     {
       path: '/actor/:id',
