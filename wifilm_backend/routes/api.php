@@ -36,6 +36,7 @@ Route::post('AdminLogin', [adminsController::class, 'login']);
 
 Route::apiResource('movies', MoviesController::class);
 Route::apiResource('actors', ActorsController::class);
+Route::get('searshformovies/{text}', [MoviesController::class, 'searshformovies']);
 Route::middleware('auth:sanctum')->group(
     function () {
         Route::get('user', [authController::class, 'index']);
@@ -44,7 +45,6 @@ Route::middleware('auth:sanctum')->group(
         Route::apiResource('genres', GenreController::class);
         Route::apiResource('genresmovies', genres_moviesController::class);
         Route::get('searshforgenres/{text}', [GenreController::class, 'searshforgenres']);
-        Route::get('searshformovies/{text}', [MoviesController::class, 'searshformovies']);
         Route::post('check', [reviewsController::class, 'check']);
     }
 );

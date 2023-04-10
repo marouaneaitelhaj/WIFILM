@@ -13,12 +13,22 @@ class MoviesController extends Controller
      */
     public function index()
     {
+        $page = $_GET['page'];
+        $allMovies = movies::all();
         $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
             ->with('reviews')
             ->with('genres')
             ->orderByDesc('avg_rating')
+            ->offset(($page - 1) * 10)
+            ->limit(10)
             ->get();
-        return response()->json($movies, 200);
+        return response()->json(
+            [
+                'movies' => $movies,
+                'all' => ceil(count($allMovies) / 10)
+            ],
+            200
+        );
     }
     public function searshformovies($text)
     {
