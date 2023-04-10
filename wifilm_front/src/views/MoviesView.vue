@@ -3,7 +3,7 @@
     <div class="h-screen">
         <div class="flex flex-wrap justify-center">
             <div v-for="(movie, i) in movies">
-                <MovieCard :id="movie.id" :rank="i + 1" :name="movie.name" :genres="movie.genres"
+                <MovieCard :id="movie.id" :rank="((page - 1) * 8) + i + 1" :name="movie.name" :genres="movie.genres"
                     :description="movie.description" :image="movie.image" :reviews="movie.reviews" />
             </div>
         </div>
@@ -26,7 +26,8 @@ export default {
         return {
             movies: {},
             all: 0,
-            divVisible: false
+            divVisible: false,
+            page: 1
         }
     },
     mounted() {
@@ -49,6 +50,7 @@ export default {
                 .then(response => {
                     this.movies = response.data.movies;
                     this.all = response.data.all;
+                    this.page = response.data.page;
                 })
                 .catch(error => {
                     console.log(error);

@@ -19,13 +19,14 @@ class MoviesController extends Controller
             ->with('reviews')
             ->with('genres')
             ->orderByDesc('avg_rating')
-            ->offset(($page - 1) * 10)
-            ->limit(10)
+            ->offset(($page - 1) * 8)
+            ->limit(8)
             ->get();
         return response()->json(
             [
                 'movies' => $movies,
-                'all' => ceil(count($allMovies) / 10)
+                'all' => ceil(count($allMovies) / 8),
+                'page' => $page
             ],
             200
         );
