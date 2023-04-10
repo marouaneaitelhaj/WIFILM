@@ -20,6 +20,10 @@ class MoviesController extends Controller
             ->get();
         return response()->json($movies, 200);
     }
+    public function searshformovies($text)
+    {
+        return movies::where('name', 'like', '%' . $text . '%')->take(3)->get();
+    }
 
     /**
      * Store a newly created resource in storage.

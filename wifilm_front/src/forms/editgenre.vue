@@ -108,7 +108,6 @@ export default {
                 })
         },
         close() {
-            console.log('close');
             console.log(this.$parent.isformopen);
             this.$parent.isformopen = false;
         },

@@ -31,7 +31,7 @@ class GenreController extends Controller
         $genres->description = $request->description;
         $genres->save();
     }
-    public function searshofgenres($text)
+    public function searshforgenres($text)
     {
         return genres::where('name', 'like', '%' . $text . '%')->take(3)->get();
     }
@@ -60,7 +60,7 @@ class GenreController extends Controller
         $genres->description = $request->description;
         $genres->save();
     }
-    
+
 
 
 

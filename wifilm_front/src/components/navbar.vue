@@ -154,7 +154,6 @@ export default {
             authStore.logout()
         },
         navbarbtn() {
-            console.log('navbarbtn')
             const navbar = document.getElementById('SiteNav')
             navbar.classList.toggle('hidden')
         }

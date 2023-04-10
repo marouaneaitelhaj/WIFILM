@@ -1,5 +1,5 @@
 <template>
-    <RouterLink to="sss">
+    <RouterLink :to="{ name: 'actor', params: { id: id } }">
         <div class=" bg-zinc-900 flex flex-col m-10 p-10 rounded-md justify-center items-center">
             <div>
                 <img class="h-48 w-48 object-cover  rounded-full" :src="image" alt="Sunset in the mountains">
@@ -17,6 +17,7 @@ export default {
         name: String,
         description: String,
         image: String,
+        id: Number
     },
     components: {
         RouterLink,

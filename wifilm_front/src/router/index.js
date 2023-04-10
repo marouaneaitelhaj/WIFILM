@@ -65,6 +65,12 @@ const router = createRouter({
         requiresAuth: true
       }
     },
+    {
+      path: '/actor/:id',
+      name: 'actor',
+      component: () => import('../views/ActorsProfile.vue'),
+      props: route => ({ id: route.params.id }),
+    },
   ]
 })
 router.beforeEach((to, from, next) => {

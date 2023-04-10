@@ -61,10 +61,12 @@
                 </div>
                 <div>
                     <div class="relative">
-                        <span v-for="movie in selectedmovie" @click="Deletemovie(movie)"
-                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
-                            {{ movie.name }}
-                        </span>
+                        <div class="flex flex-wrap justify-center">
+                            <span v-for="movie in selectedmovie" @click="Deletemovie(movie)"
+                                class="mx-1 my-1 whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
+                                {{ movie.name }}
+                            </span>
+                        </div>
                         <input type="text" v-model="movie"
                             class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                             placeholder="drama , action" />
@@ -77,7 +79,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="m-4">
+                    <div class="m-4 mx-1 my-1 flex justify-center flex-wrap">
                         <span v-for="movie in movies" @click="addmovie(movie)"
                             class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-green-700">
                             {{ movie.name }}
@@ -101,7 +103,10 @@ export default {
             name: '',
             description: '',
             image: '',
-            loading: false
+            movie: '',
+            loading: false,
+            selectedmovie: [],
+            movies: []
         }
     },
     props: {
@@ -112,9 +117,12 @@ export default {
     },
     mounted() {
         this.getactors();
-
     },
     methods: {
+        Deletemovie(movie) {
+            this.selectedmovie = this.selectedmovie.filter(item => item.id !== movie.id);
+            this.movies.push(movie);
+        },
         getactors() {
             axios.get('http://127.0.0.1:8000/api/actors/' + this.id, {
                 headers: {
@@ -125,6 +133,7 @@ export default {
                     this.name = response.data.name;
                     this.description = response.data.description;
                     this.image = response.data.image;
+                    this.selectedmovie = response.data.movies;
                 })
                 .catch(error => {
 
@@ -132,8 +141,28 @@ export default {
                     console.log(error);
                 })
         },
+        addmovie(movie) {
+            if (this.selectedmovie.find(item => item.id === movie.id)) {
+                alert('already exist');
+            } else {
+                this.selectedmovie.push(movie);
+                this.movies = this.movies.filter(item => item.id !== movie.id);
+            }
+        },
+        getMovies() {
+            axios.get('http://127.0.0.1:8000/api/searshformovies/' + this.movie, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+                .then(response => {
+                    this.movies = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
         close() {
-            console.log('close');
             console.log(this.$parent.isformopen);
             this.$parent.isformopen = false;
         },
@@ -152,8 +181,21 @@ export default {
                 }
             )
                 .then(response => {
-                    console.log(response);
+                    this.AddMovieToActorProfile(this.selectedmovie);
                     this.$parent.getActors();
+                })
+        },
+        AddMovieToActorProfile(movies) {
+            axios.post('http://127.0.0.1:8000/api/actors_movies',
+                {
+                    "actors_id": this.id,
+                    "movies": movies
+                },
+                {
+
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
                 })
         },
         uploadimage(event) {
@@ -167,6 +209,16 @@ export default {
                     this.loading = false;
                     this.image = response.data.secure_url;
                 })
+        },
+
+    },
+    watch: {
+        movie() {
+            if (this.movie == "") {
+                this.movies = [];
+            } else {
+                this.getMovies();
+            }
         }
     }
 

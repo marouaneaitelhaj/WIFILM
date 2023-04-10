@@ -38,7 +38,7 @@ class ActorsController extends Controller
      */
     public function show(string $id)
     {
-        return actors::find($id)->with('movies')->get();
+        return actors::where('id', $id)->with('movies')->first();
     }
 
     /**

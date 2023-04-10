@@ -143,7 +143,7 @@ export default {
             }
         },
         getgenres() {
-            axios.get('http://127.0.0.1:8000/api/searshofgenres/' + this.genre, {
+            axios.get('http://127.0.0.1:8000/api/searshforgenres/' + this.genre, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -156,7 +156,6 @@ export default {
                 })
         },
         close() {
-            console.log('close');
             this.$parent.openedform = '';
         },
         add() {

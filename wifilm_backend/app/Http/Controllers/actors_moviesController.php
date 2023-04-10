@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\genres_movies;
+use App\Models\actors;
 use Illuminate\Http\Request;
+use App\Models\actors_movies;
 
-class genres_moviesController extends Controller
+class actors_moviesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +21,16 @@ class genres_moviesController extends Controller
      */
     public function store(Request $request)
     {
-        foreach ($request->genres as $genre) {
-            $genres_movies = new genres_movies();
-            $genres_movies->genres_id = $genre['id'];
-            $genres_movies->movies_id = $request->movies_id;
-            $genres_movies->save();
+        actors_movies::where('actors_id', $request->actors_id)->delete();
+        foreach ($request->movies as $movie) {
+            $actor_movie = actors_movies::where('actors_id', $request->actors_id)->where('movies_id', $movie['id'])->first();
+            if ($actor_movie) {
+                continue;
+            }
+            $actors_movies = new actors_movies();
+            $actors_movies->actors_id = $request->actors_id;
+            $actors_movies->movies_id = $movie['id'];
+            $actors_movies->save();
         }
     }
 
@@ -49,9 +55,6 @@ class genres_moviesController extends Controller
      */
     public function destroy(string $id)
     {
-        $genres_movies = genres_movies::where('movies_id', $id)->get();
-        foreach ($genres_movies as $genre_movie) {
-            $genre_movie->delete();
-        }
+        //
     }
 }

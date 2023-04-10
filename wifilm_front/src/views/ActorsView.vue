@@ -3,7 +3,7 @@
         <h1>Movies</h1>
         <div class="flex flex-wrap justify-around">
             <div v-for="actor in actors">
-                <actorcard :name="actor.name" :description="actor.description" :image="actor.image" />
+                <actorcard :name="actor.name" :id="actor.id" :description="actor.description" :image="actor.image" />
             </div>
         </div>
     </div>

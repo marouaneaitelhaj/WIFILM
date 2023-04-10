@@ -1,5 +1,5 @@
 <template>
-    <div 
+    <div
         class="fixed  drop-shadow-2xl top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
         <div class=" bg-white mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="flex justify-end" @click="close">
@@ -132,8 +132,8 @@ export default {
         },
         addgenre(genre) {
             if (this.selectedgenre.length < 3) {
-                if (this.selectedgenre.includes(genre)) {
-
+                if (this.selectedgenre.find(item => item.id === genre.id)) {
+                    console.log('already selected');
                 } else {
                     this.selectedgenre.push(genre);
                 }
@@ -143,7 +143,7 @@ export default {
         },
         getgenres() {
 
-            axios.get('http://127.0.0.1:8000/api/searshofgenres/' + this.genre, {
+            axios.get('http://127.0.0.1:8000/api/searshforgenres/' + this.genre, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -174,7 +174,6 @@ export default {
                 })
         },
         close() {
-            console.log('close');
             this.$parent.isformopen = false;
         },
         edit() {
@@ -194,9 +193,7 @@ export default {
                     console.log(response);
                     this.$parent.getmovies();
                     this.deleteallgenres();
-                    for (let i = 0; i < this.selectedgenre.length; i++) {
-                        this.insertintogenresmovies(this.selectedgenre[i].id);
-                    }
+                    this.insertintogenresmovies(this.selectedgenre);
                 })
                 .catch(error => {
                     console.log(error);
@@ -220,7 +217,7 @@ export default {
             axios.post('http://127.0.0.1:8000/api/genresmovies',
                 {
                     "movies_id": this.id,
-                    "genres_id": selectedgenre
+                    "genres": selectedgenre
                 },
                 {
                     headers: {
