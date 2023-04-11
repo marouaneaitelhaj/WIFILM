@@ -1,6 +1,6 @@
 <template>
-    <div class="flex h-screen px-10 py-10">
-        <div class="bg-yellow-400 w-1/3 rounded-md">
+    <div class="flex relative h-screen px-10 py-10">
+        <div class=" bg-yellow-400 w-1/3 rounded-md">
             <div class=" flex items-center py-14 flex-col ">
                 <img :src="actor.image" class="h-40 w-40 object-cover rounded-full" alt="">
                 <h1 class="font-bold text-xl">{{ actor.name }}</h1>

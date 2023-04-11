@@ -17,14 +17,24 @@
 
                 </label>
             </div>
+            <div @click="opencrud('actor')">
+
+                <label for="DeliveryPriority"
+                    class="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500">
+                    <p class="text-gray-700">Add Actors</p>
+
+                </label>
+            </div>
         </div>
     </div>
-    <addmovie v-if="openedform == 'movie'"></addmovie>
-    <addgenre v-if="openedform == 'genre'"></addgenre>
+    <AddMovie v-if="openedform == 'movie'"></AddMovie>
+    <AddGenre v-if="openedform == 'genre'"></AddGenre>
+    <AddActor v-if="openedform == 'actor'"></AddActor>
 </template>
 <script>
-import addmovie from './addmovie.vue';
-import addgenre from './addgenre.vue';
+import AddMovie from './AddMovie.vue';
+import AddGenre from './AddGenre.vue';
+import AddActor from './AddActor.vue';
 export default {
     data() {
         return {
@@ -33,13 +43,13 @@ export default {
     },
     methods: {
         opencrud(name) {
-            console
             this.openedform = name
         }
     },
     components: {
-        addmovie,
-        addgenre
+        AddMovie,
+        AddGenre,
+        AddActor,
     }
 }
 </script>

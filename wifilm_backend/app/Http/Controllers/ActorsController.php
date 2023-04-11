@@ -31,6 +31,9 @@ class ActorsController extends Controller
         $actors->image = $request->image;
         $actors->description = $request->description;
         $actors->save();
+        return response()->json([
+            'id' => $actors->id,
+        ], 201);
     }
 
     /**

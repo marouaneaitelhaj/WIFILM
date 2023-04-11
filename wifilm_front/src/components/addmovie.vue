@@ -69,7 +69,7 @@
                         </span>
                     </div>
                     <div class="m-4">
-                        <span v-for="genre in genres" @click="addgenre(genre)"
+                        <span v-for="genre in genres" @click="AddGenre(genre)"
                             class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-green-700">
                             {{ genre.name }}
                         </span>
@@ -131,7 +131,7 @@ export default {
         DeleteGenre(genre) {
             this.selectedgenre = this.selectedgenre.filter(item => item.id !== genre.id);
         },
-        addgenre(genre) {
+        AddGenre(genre) {
             if (this.selectedgenre.length < 3) {
                 if (this.selectedgenre.includes(genre)) {
 

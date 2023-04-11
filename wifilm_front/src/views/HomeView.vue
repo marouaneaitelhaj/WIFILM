@@ -1,7 +1,9 @@
 <template>
   <section class="">
     <video muted class="w-screen h-screen object-cover -z-20 brightness-25 fixed top-0" autoplay>
-      <source src="https://imdb-video.media-imdb.com/vi338798873/1434659607842-pgv4ql-1616202355944.mp4?Expires=1680901179&Signature=WKWjdgHQhc2~a666tMh7IuLG61hYsuyGdQk1NtO0QT~pVSG46ohnKBvdj61zXSqJ80YqKKg1JLjFHUEf60HFEjViNirjdFfOU6A0x1IK6Vl3nIr~mX1gh2w8kvUlkf0hMPVfSx46uPre8ku6N2712MeLEfRcLV1D~M66vaUoukUiWDHRiDs1DbzLUGdE6hIG48HoIF8mT6okFW-M5T6e7egyfuSTg309WHCCJcTZGACsBl7Wh0lcP4NfLmRJi7iLI62AMMdsgr7XGw3-KIRQktdKeiCyEOqPdbh5iL7qQuj~PazYSy11dpq4DWNIeVOMBMYWtEVWsL1Qe8IADLb7Xg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" type="video/mp4">
+      <source
+        src="https://imdb-video.media-imdb.com/vi2830483993/1434659607842-pgv4ql-1648844517801.mp4?Expires=1681296920&Signature=DjOeynlXeowX1QMxP7uEwjjQ6fqcWmVrKeMWzXbbrk0K1B8Csji0GSYxVg0CDRmeDMBpbPnZmwqX5tkd8dq6EMFPPZq5Qg1m3iEoP71GqDBfcc-6bO35iQ~rhEV708YyOJAsgtq7u2-VQAp3CN4BJQmzuWB58aiGs~XsLSdHgfHrGz5hWiYoXvOrFEMzU19LCWhoJ-hGSkuSEHJk9dFaOlIB35kORZT10Q3xQjhCFGfsYnyKaO6fEcg1UqqQeq~S-3Z5l8yUd01PXPG~v1a1K3sITNssqausahf~pLfmrmv7w20bn0RVGigTNXxvycOjMkHNMfhAk5eou7aubtgegA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+        type="video/mp4">
     </video>
     <div class="mx-auto  max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
       <div class="mx-auto  max-w-xl text-center">
@@ -17,71 +19,71 @@
     <div class="w-full flex max-sm:flex-col">
       <div class="w-3/5 flex justify-center items-center max-sm:w-full">
         <div class="m-2">
-          <img class="object-cover w-full"
-            src="https://static.onecms.io/wp-content/uploads/sites/6/2022/04/15/Better-Call-Saul-S6.jpg" alt="">
+          <img class="object-cover w-full" :src="firstMovie.url" alt="">
         </div>
       </div>
       <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
         <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl ">Better Call WiFilm</h1>
-          <p class="text-white  text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
-            the years leading
-            up to his fateful run-in with
-            Walter White and Jesse Pinkman.</p>
+          <h1 class="text-white font-bold text-2xl ">{{ firstMovie.caption }}</h1>
         </div>
       </div>
     </div>
     <div class="w-full  flex max-sm:flex-col-reverse">
       <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
         <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl md:text-xl ">Better Call WiFilm</h1>
-          <p class="text-white text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
-            the years leading
-            up to his fateful run-in with
-            Walter White and Jesse Pinkman.</p>
+          <h1 class="text-white font-bold text-2xl md:text-xl ">{{ secondMovie.caption }}</h1>
         </div>
       </div>
       <div class="w-3/5 flex justify-center items-center max-sm:w-full">
         <div class="m-2">
-          <img class="object-cover w-full"
-            src="https://ogden_images.s3.amazonaws.com/www.lockhaven.com/images/2021/01/06173002/BreakingBad1.jpg" alt="">
+          <img class="object-cover w-full" :src="secondMovie.url" alt="">
         </div>
       </div>
     </div>
     <div class="w-full  flex max-sm:flex-col">
       <div class="w-3/5 flex justify-center items-center max-sm:w-full">
         <div class="m-2">
-          <img class="object-cover w-full"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/5B3UU2W7MVA6BKYWC7VRR7HWSA.jpg" alt="">
+          <img class="object-cover w-full" :src="thirdMovie.url" alt="">
         </div>
       </div>
       <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
         <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl md:text-xl ">Better Call WiFilm</h1>
-          <p class="text-white text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
-            the years leading
-            up to his fateful run-in with
-            Walter White and Jesse Pinkman.</p>
-        </div>
-      </div>
-    </div>
-    <div class="w-full  flex max-sm:flex-col-reverse">
-      <div class="w-2/5 my-5 flex justify-center items-center max-sm:w-full">
-        <div class="flex justify-center items-center flex-col">
-          <h1 class="text-white font-bold text-2xl md:text-xl  ">Better Call WiFilm</h1>
-          <p class="text-white text-center ">The trials and tribulations of criminal lawyer Jimmy McGill in
-            the years leading
-            up to his fateful run-in with
-            Walter White and Jesse Pinkman.</p>
-        </div>
-      </div>
-      <div class="w-3/5 flex justify-center items-center max-sm:w-full">
-        <div class="m-2">
-          <img class="object-cover w-full"
-            src="https://images.squarespace-cdn.com/content/v1/52fc05c9e4b08fc45bd99090/1563302834562-M0WSL1SOJKQ81KHSR2LR/got-emmy-nom-2019-1920+%281%29.jpg?format=2500w"
-            alt="">
+          <h1 class="text-white font-bold text-2xl md:text-xl ">{{ thirdMovie.caption }}</h1>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      firstMovie: '',
+      secondMovie: '',
+      thirdMovie: '',
+    };
+  },
+  mounted() {
+    const randomNumbers = Array.from({ length: 3 }, () => Math.floor(Math.random() * 10));
+    const options = {
+      method: 'GET',
+      url: 'https://imdb8.p.rapidapi.com/title/get-images',
+      params: { tconst: 'tt0944947', limit: '25' },
+      headers: {
+        'X-RapidAPI-Key': '3b8a341351msh0941e89d8a233fap1d4700jsn42ffa694f126',
+        'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+      }
+    };
+    axios.request(options)
+      .then(response => {
+        this.firstMovie = response.data.images[randomNumbers[0]];
+        this.secondMovie = response.data.images[randomNumbers[1]];
+        this.thirdMovie = response.data.images[randomNumbers[2]];
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
+
+};
+</script>

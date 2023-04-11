@@ -73,4 +73,8 @@ class MoviesController extends Controller
     {
         movies::where('id', $id)->delete();
     }
+    public function DashboardMovies()
+    {
+        return movies::with('genres')->get();
+    }
 }

@@ -80,7 +80,7 @@
                         </span>
                     </div>
                     <div class="m-4 mx-1 my-1 flex justify-center flex-wrap">
-                        <span v-for="movie in movies" @click="addmovie(movie)"
+                        <span v-for="movie in movies" @click="AddMovie(movie)"
                             class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-green-700">
                             {{ movie.name }}
                         </span>
@@ -141,7 +141,7 @@ export default {
                     console.log(error);
                 })
         },
-        addmovie(movie) {
+        AddMovie(movie) {
             if (this.selectedmovie.find(item => item.id === movie.id)) {
                 alert('already exist');
             } else {
@@ -183,6 +183,7 @@ export default {
                 .then(response => {
                     this.AddMovieToActorProfile(this.selectedmovie);
                     this.$parent.getActors();
+                    this.$parent.isformopen = false;
                 })
         },
         AddMovieToActorProfile(movies) {

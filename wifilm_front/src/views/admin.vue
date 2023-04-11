@@ -33,7 +33,7 @@
                     <div class="flex items-center justify-center gap-4">
 
 
-                        <span class="text-sm font-medium text-white"> actors </span>
+                        <span class="text-sm font-medium text-white"> Actors </span>
                     </div>
                 </a>
             </li>
@@ -52,20 +52,20 @@
                 </a>
             </li>
         </ul>
-        <adminMovies v-if="component == 'movies'" />
-        <admingenres v-if="component == 'genres'" />
-        <adminactors v-if="component == 'actors'" />
-        <adminadd v-if="component == 'add'" />
+        <DashboardMovies v-if="component == 'movies'" />
+        <DashboardGenres v-if="component == 'genres'" />
+        <DashboardActors v-if="component == 'actors'" />
+        <AdminAdd v-if="component == 'add'" />
         <div v-if="component == ''" class="flex justify-center py-64 font-bold text-3xl">
             <h1 class="text-white">Heloo Admin</h1>
         </div>
     </div>
 </template>
 <script>
-import adminMovies from '../components/adminMovies.vue';
-import admingenres from '../components/admingenres.vue';
-import adminactors from '../components/adminactors.vue';
-import adminadd from '../components/adminadd.vue';
+import DashboardMovies from '../components/DashboardMovies.vue';
+import DashboardGenres from '../components/DashboardGenres.vue';
+import DashboardActors from '../components/DashboardActors.vue';
+import AdminAdd from '../components/AdminAdd.vue';
 import { RouterLink, RouterView } from 'vue-router'
 export default {
     data() {
@@ -74,10 +74,10 @@ export default {
         }
     },
     components: {
-        adminMovies,
-        adminactors,
-        admingenres,
-        adminadd
+        DashboardMovies,
+        DashboardActors,
+        DashboardGenres,
+        AdminAdd
     },
     methods: {
         opencrud(com) {
