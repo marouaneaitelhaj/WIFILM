@@ -64,7 +64,8 @@ export default {
     };
   },
   mounted() {
-    const randomNumbers = Array.from({ length: 3 }, () => Math.floor(Math.random() * 10));
+    // three random numbers between 0 and 24 and unique
+    const randomNumbers = [...new Set(Array.from({ length: 3 }, () => Math.floor(Math.random() * 25)))];
     const options = {
       method: 'GET',
       url: 'https://imdb8.p.rapidapi.com/title/get-images',

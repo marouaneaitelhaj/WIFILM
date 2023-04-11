@@ -5,7 +5,7 @@
 
       <div class="grid gap-8 lg:grid-cols-4 lg:items-start">
         <div class="lg:col-span-3">
-          
+
           <div class="relative mt-4">
             <img alt="Tee" :src="movie.image" class="h-72 w-full rounded-xl object-cover lg:h-[540px]" />
 
@@ -108,6 +108,19 @@
         </div>
 
       </div>
+      <div class="bg-zinc-700 px-5 py-5">
+          <div class="prose max-w-none">
+            <p class="text-white">
+              Comments
+            </p>
+            <div v-for="comment in AnalyticsData.comments" class="py-5">
+              <!-- <p class="text-zinc-200">{{comment}}</p> -->
+              <p class="text-zinc-200 font-bold">{{ comment.users.name }}</p>
+              <!-- <p class="text-zinc-200">{{ moment(comment.updated_at).fromNow() }}</p> -->
+              <p class="text-zinc-200">{{ comment.comment }}</p>
+            </div>
+          </div>
+        </div>
     </div>
   </section>
   <section class="">
@@ -154,6 +167,7 @@ import { useAuthStore } from '@/stores/auth'
 import { useFxStore } from '@/stores/fx'
 import { mapWritableState } from 'pinia'
 import charts from '../components/charts.vue'
+import moment from 'moment'
 export default {
   data() {
     return {

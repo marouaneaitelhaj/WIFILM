@@ -57,6 +57,7 @@ class reviewsController extends Controller
         $threestar = reviews::where('movies_id', $id)->where('review', 3)->get();
         $fourstar = reviews::where('movies_id', $id)->where('review', 4)->get();
         $fivestar = reviews::where('movies_id', $id)->where('review', 5)->get();
+        $comments = reviews::where('movies_id', $id)->with('users')->get();
         if (count($Analytics) == 0) {
             return response()->json([
                 'numberofrating' => 0,
@@ -80,6 +81,7 @@ class reviewsController extends Controller
                 'average' => (count($onestar) + count($twostar) * 2 + count($threestar) * 3 + count($fourstar) * 4 + count($fivestar) * 5) / count($Analytics),
                 'positive' => (count($fivestar) + count($fourstar)) / count($Analytics) * 100,
                 'negative' => (count($onestar) + count($twostar) + count($threestar)) / count($Analytics) * 100,
+                'comments' => $comments
             ], 200);
         }
     }
