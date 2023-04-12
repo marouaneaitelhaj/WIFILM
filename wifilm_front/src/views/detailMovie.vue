@@ -109,18 +109,18 @@
 
       </div>
       <div class="bg-zinc-700 px-5 py-5">
-          <div class="prose max-w-none">
-            <p class="text-white">
-              Comments
-            </p>
-            <div v-for="comment in AnalyticsData.comments" class="py-5">
-              <!-- <p class="text-zinc-200">{{comment}}</p> -->
-              <p class="text-zinc-200 font-bold">{{ comment.users.name }}</p>
-              <!-- <p class="text-zinc-200">{{ moment(comment.updated_at).fromNow() }}</p> -->
-              <p class="text-zinc-200">{{ comment.comment }}</p>
-            </div>
+        <div class="prose max-w-none">
+          <p class="text-white">
+            Comments
+          </p>
+          <div v-for="comment in AnalyticsData.comments" class="py-5">
+            <!-- <p class="text-zinc-200">{{comment}}</p> -->
+            <p class="text-white font-bold">{{ comment.users.name }}</p>
+            <p class="text-zinc-200">{{ timeago(comment.updated_at) }}</p>
+            <p class="text-zinc-400">{{ comment.comment }}</p>
           </div>
         </div>
+      </div>
     </div>
   </section>
   <section class="">
@@ -167,7 +167,7 @@ import { useAuthStore } from '@/stores/auth'
 import { useFxStore } from '@/stores/fx'
 import { mapWritableState } from 'pinia'
 import charts from '../components/charts.vue'
-import moment from 'moment'
+import { formatTimeAgo } from '@vueuse/core'
 export default {
   data() {
     return {
@@ -219,6 +219,11 @@ export default {
     charts
   },
   methods: {
+    timeago(time) {
+      var result = formatTimeAgo(new Date(time))
+      console.log(result)
+      return result;
+    },
     Analytics() {
       axios.get('http://127.0.0.1:8000/api/reviews/' + this.id, {
         headers: {
@@ -227,7 +232,6 @@ export default {
       })
         .then(response => {
           this.AnalyticsData = response.data;
-          console.log(this.AnalyticsData);
         })
         .catch(error => {
           console.log(error);
