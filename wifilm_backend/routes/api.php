@@ -33,7 +33,8 @@ Route::post('AdminLogin', [adminsController::class, 'login']);
 
 // Route::middleware('auth')->group(
 //     function () {
-
+    
+    Route::apiResource('genres', GenreController::class);
 Route::apiResource('movies', MoviesController::class);
 Route::get('DashboardMovies', [MoviesController::class, 'DashboardMovies']);
 Route::apiResource('actors', ActorsController::class);
@@ -43,7 +44,6 @@ Route::middleware('auth:sanctum')->group(
         Route::get('user', [authController::class, 'index']);
         Route::apiResource('actors_movies', actors_moviesController::class);
         Route::apiResource('reviews', reviewsController::class);
-        Route::apiResource('genres', GenreController::class);
         Route::apiResource('genresmovies', genres_moviesController::class);
         Route::get('searshforgenres/{text}', [GenreController::class, 'searshforgenres']);
         Route::post('check', [reviewsController::class, 'check']);

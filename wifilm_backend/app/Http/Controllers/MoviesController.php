@@ -14,14 +14,31 @@ class MoviesController extends Controller
     public function index()
     {
         $page = $_GET['page'];
-        $allMovies = movies::all();
-        $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
-            ->with('reviews')
-            ->with('genres')
-            ->orderByDesc('avg_rating')
-            ->offset(($page - 1) * 8)
-            ->limit(8)
-            ->get();
+        $genre = $_GET['genre'];
+        if($genre == 0){
+            $allMovies = movies::all();
+            $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
+                ->with('reviews')
+                ->with('genres')
+                ->orderByDesc('avg_rating')
+                ->offset(($page - 1) * 8)
+                ->limit(8)
+                ->get();
+        }else{
+            $allMovies = movies::whereHas('genres', function ($query) use ($genre) {
+                $query->where('genres_id', $genre);
+            })->get();
+            $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
+                ->with('reviews')
+                ->with('genres')
+                ->whereHas('genres', function ($query) use ($genre) {
+                    $query->where('genres_id', $genre);
+                })
+                ->orderByDesc('avg_rating')
+                ->offset(($page - 1) * 8)
+                ->limit(8)
+                ->get();
+        }
         return response()->json(
             [
                 'movies' => $movies,

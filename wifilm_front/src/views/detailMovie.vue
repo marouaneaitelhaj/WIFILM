@@ -30,7 +30,7 @@
                   </path>
                 </svg>
               </div>
-              <div v-for="r in norate">
+              <div v-for="r in (5 - rate)">
                 <svg aria-hidden="true" @click="rating(r + rate)" class="w-5 h-5 text-gray-400" fill="currentColor"
                   viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <title>First star</title>
@@ -69,7 +69,7 @@
                   </path>
                 </svg>
               </div>
-              <div v-for="r in norate">
+              <div v-for="r in (5 - rate)">
                 <svg aria-hidden="true" @click="rating(r + rate)" class="w-5 h-5 text-gray-400" fill="currentColor"
                   viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <title>First star</title>
@@ -108,17 +108,40 @@
         </div>
 
       </div>
-      <div class="bg-zinc-700 px-5 py-5">
+      <div v-if="AnalyticsData.comments" class="bg-zinc-700 px-5 overflow-auto		h-80 py-5 my-20">
         <div class="prose max-w-none">
           <p class="text-white">
             Comments
           </p>
           <div v-for="comment in AnalyticsData.comments" class="py-5">
             <!-- <p class="text-zinc-200">{{comment}}</p> -->
-            <p class="text-white font-bold">{{ comment.users.name }}</p>
-            <p class="text-zinc-200">{{ timeago(comment.updated_at) }}</p>
+            <div class="flex items-center">
+              <div v-for="r in comment.review">
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>First star</title>
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+              </div>
+              <div v-for="r in (5 - comment.review)">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>First star</title>
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <p class="text-white font-bold mr-2">{{ comment.users.name }}</p>
+              <p class="text-zinc-200 font-extralight text-xs">{{ timeago(comment.updated_at) }}</p>
+            </div>
             <p class="text-zinc-400">{{ comment.comment }}</p>
           </div>
+
         </div>
       </div>
     </div>
@@ -173,7 +196,6 @@ export default {
     return {
       movie: {},
       rate: 1,
-      norate: 4,
       comment: '',
       can: true,
       myreviews: [],
@@ -322,10 +344,8 @@ export default {
     myreviews() {
       this.rate = this.myreviews.review;
       this.comment = this.myreviews.comment;
-      this.norate = 5 - this.rate;
     },
     rate() {
-      this.norate = 5 - this.rate;
     },
     myOwnName() {
       this.users_id = this.myOwnName

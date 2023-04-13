@@ -1,5 +1,27 @@
 <template>
     <search v-if="divVisible" />
+    <div class="py-5 mx-10">
+        <span :class="
+            [
+                'border',
+                'p-2',
+                'rounded-full',
+                { 'bg-white': SelectedGenre === '0' },
+                { 'text-black': SelectedGenre === '0' },
+                { 'text-white': SelectedGenre !== '0' },
+            ]
+        " @click="getMovies(page = 1, genre = '0')">All</span>
+        <span v-for="genre in genres" @click="getMovies(page = 1, genre = genre.id)" :class="
+            [
+                'border',
+                'p-2',
+                'rounded-full',
+                { 'bg-white': SelectedGenre === genre.id },
+                { 'text-black': SelectedGenre === genre.id },
+                { 'text-white': SelectedGenre !== genre.id },
+            ]
+        ">{{ genre.name }}</span>
+    </div>
     <div class="h-screen">
         <div class="flex flex-wrap justify-center">
             <div v-for="(movie, i) in movies">
@@ -25,13 +47,16 @@ export default {
     data() {
         return {
             movies: {},
+            genres: {},
             all: 0,
             divVisible: false,
-            page: 1
+            page: 1,
+            SelectedGenre: 0
         }
     },
     mounted() {
         this.getMovies();
+        this.getGenres();
         window.addEventListener('keydown', this.handleKeyDown)
     },
     methods: {
@@ -40,9 +65,10 @@ export default {
                 this.divVisible = !this.divVisible
             }
         },
-        getMovies(page = 1) {
+        getMovies(page = 1, genre = 0) {
+            this.SelectedGenre = genre;
             useFxStore().loading = true;
-            axios.get('http://127.0.0.1:8000/api/movies?page=' + page, {
+            axios.get('http://127.0.0.1:8000/api/movies?page=' + page + '&genre=' + genre, {
                 headers: {
                     Authorization: `Bearer ${useAuthStore().token}`
                 }
@@ -57,6 +83,16 @@ export default {
                 })
                 .finally(() => {
                     useFxStore().loading = false;
+                })
+        },
+        getGenres() {
+            axios.get("http://127.0.0.1:8000/api/genres", {
+                headers: {
+                    Authorization: `Bearer ${useAuthStore().token}`
+                }
+            })
+                .then(response => {
+                    this.genres = response.data;
                 })
         }
     },
