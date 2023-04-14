@@ -1,26 +1,30 @@
 <template>
     <search v-if="divVisible" />
-    <div class="py-5 mx-10">
-        <span :class="
-            [
-                'border',
-                'p-2',
-                'rounded-full',
-                { 'bg-white': SelectedGenre === '0' },
-                { 'text-black': SelectedGenre === '0' },
-                { 'text-white': SelectedGenre !== '0' },
-            ]
-        " @click="getMovies(page = 1, genre = '0')">All</span>
-        <span v-for="genre in genres" @click="getMovies(page = 1, genre = genre.id)" :class="
-            [
-                'border',
-                'p-2',
-                'rounded-full',
-                { 'bg-white': SelectedGenre === genre.id },
-                { 'text-black': SelectedGenre === genre.id },
-                { 'text-white': SelectedGenre !== genre.id },
-            ]
-        ">{{ genre.name }}</span>
+    <div class="overflow-x-auto mx-5">
+        <div class="flex w-max my-5">
+            <p :class="
+                [
+                    'mx-2',
+                    'px-5',
+                    'py-2',
+                    'border',
+                    'rounded-full',
+                    { 'text-yellow-400': SelectedGenre === '0' },
+                    { 'text-white': SelectedGenre !== '0' },
+                ]
+            " @click="getMovies(page = 1, genre = '0')">All</p>
+            <p v-for="genre in genres" @click="getMovies(page = 1, genre = genre.id)" :class="
+                [
+                    'mx-2',
+                    'px-5',
+                    'py-2',
+                    'border',
+                    'rounded-full',
+                    { 'text-yellow-400': SelectedGenre === genre.id },
+                    { 'text-white': SelectedGenre !== genre.id },
+                ]
+            ">{{ genre.name }}</p>
+        </div>
     </div>
     <div class="h-screen">
         <div class="flex flex-wrap justify-center">
@@ -99,3 +103,8 @@ export default {
 
 }
 </script>
+<style scoped>
+::-webkit-scrollbar {
+    display: none;
+}
+</style>

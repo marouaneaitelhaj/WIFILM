@@ -15,7 +15,7 @@
       </div>
     </div>
   </section>
-  <div class="m-2 bg-black">
+  <div class="my-2 px-2 bg-black">
     <div class="w-full flex max-sm:flex-col">
       <div class="w-3/5 flex justify-center items-center max-sm:w-full">
         <div class="m-2">

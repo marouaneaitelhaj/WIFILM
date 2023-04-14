@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white p-8">
+    <div class="bg-white p-8 max-sm:p-4">
         <div class="flex  items-center mb-3">
             <p class="ml-2 text-sm font-medium text-gray-900">{{ average }} out of 5</p>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="relative mx-auto max-w-screen-xl px-4 py-8">
+    <div class="relative mx-auto max-w-screen-xl px-4">
 
 
       <div class="grid gap-8 lg:grid-cols-4 lg:items-start">
@@ -108,38 +108,46 @@
         </div>
 
       </div>
-      <div v-if="AnalyticsData.comments" class="bg-zinc-700 px-5 overflow-auto		h-80 py-5 my-20">
+      <div v-if="AnalyticsData.comments" class="bg-zinc-700 px-5 overflow-auto		h-80 py-5 my-5">
         <div class="prose max-w-none">
           <p class="text-white">
             Comments
           </p>
-          <div v-for="comment in AnalyticsData.comments" class="py-5">
-            <!-- <p class="text-zinc-200">{{comment}}</p> -->
-            <div class="flex items-center">
-              <div v-for="r in comment.review">
-                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <title>First star</title>
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                  </path>
-                </svg>
-              </div>
-              <div v-for="r in (5 - comment.review)">
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <title>First star</title>
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                  </path>
-                </svg>
-              </div>
+          <div v-for="comment in AnalyticsData.comments" class="py-5 flex items-center ">
+            <div class="border rounded-full p-2 mr-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="text-white w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
             </div>
-            <div class="flex items-center">
-              <p class="text-white font-bold mr-2">{{ comment.users.name }}</p>
-              <p class="text-zinc-200 font-extralight text-xs">{{ timeago(comment.updated_at) }}</p>
+            <div>
+              <div class="flex items-center">
+                <div v-for="r in comment.review">
+                  <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>First star</title>
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
+                  </svg>
+                </div>
+                <div v-for="r in (5 - comment.review)">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>First star</title>
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <p class="text-white font-bold mr-2 max-sm:text-xs">{{ comment.users.name }}</p>
+                <p class="text-zinc-200 font-extralight text-xs">{{ timeago(comment.updated_at) }}</p>
+              </div>
+              <p class="text-zinc-400 max-sm:text-xs">{{ comment.comment }}</p>
             </div>
-            <p class="text-zinc-400">{{ comment.comment }}</p>
           </div>
 
         </div>
@@ -147,7 +155,7 @@
     </div>
   </section>
   <section class="">
-    <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+    <div class="mx-auto max-w-screen-xl px-4 py-5 sm:px-6 md:py-16 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-3xl font-bold text-white sm:text-4xl">
           {{ movie.name }}
@@ -159,7 +167,7 @@
       </div>
 
       <div class="mt-8 sm:mt-12">
-        <dl class="flex justify-between mx-5">
+        <div class="flex justify-between">
           <div class="flex flex-col rounded-lg border mx-5 border-gray-100 px-4 py-8 w-2/4 text-center">
             <dt class="order-last text-lg font-medium text-white">
               WI
@@ -179,7 +187,7 @@
 
             </dd>
           </div>
-        </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -360,3 +368,6 @@ export default {
   }
 }
 </script>
+<style scoped>
+
+</style>
