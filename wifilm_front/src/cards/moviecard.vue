@@ -1,9 +1,9 @@
 <template>
     <RouterLink :to="{ name: 'movie', params: { id: id } }">
-        <div class="m-3 bg-zinc-900 flex relative justify-center items-center">
+        <div class="m-3 bg-zinc-900 flex relative justify-center items-center rounded-tr-lg">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
                 <div class="w-full flex justify-end absolute ">
-                    <span class="px-2 font-bold py-2 rounded-full bg-yellow-400 text-black ">#{{ rank }}</span>
+                    <span class=" mr-2 mt-2 font-bold p-4 rounded-full bg-yellow-400 text-black ">#{{ rank }}</span>
                 </div>
                 <div>
                     <img class="object-cover w-52  h-80 hover:brightness-75" :src="image">

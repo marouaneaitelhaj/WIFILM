@@ -10,7 +10,7 @@ class actors_movies extends Model
     use HasFactory;
 
     protected $fillable = [
-        'actor_id',
-        'movie_id',
+        'actors_id',
+        'movies_id',
     ];
 }

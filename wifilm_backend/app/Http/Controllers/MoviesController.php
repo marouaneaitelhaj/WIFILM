@@ -21,8 +21,8 @@ class MoviesController extends Controller
                 ->with('reviews')
                 ->with('genres')
                 ->orderByDesc('avg_rating')
-                ->offset(($page - 1) * 8)
-                ->limit(8)
+                ->offset(($page - 1) * 12)
+                ->limit(12)
                 ->get();
         }else{
             $allMovies = movies::whereHas('genres', function ($query) use ($genre) {
@@ -35,14 +35,14 @@ class MoviesController extends Controller
                     $query->where('genres_id', $genre);
                 })
                 ->orderByDesc('avg_rating')
-                ->offset(($page - 1) * 8)
-                ->limit(8)
+                ->offset(($page - 1) * 12)
+                ->limit(12)
                 ->get();
         }
         return response()->json(
             [
                 'movies' => $movies,
-                'all' => ceil(count($allMovies) / 8),
+                'all' => ceil(count($allMovies) / 12),
                 'page' => $page
             ],
             200

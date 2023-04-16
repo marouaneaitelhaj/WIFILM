@@ -97,6 +97,7 @@
     </div>
 </template>
 <script>
+import { useFxStore } from '@/stores/fx'
 export default {
     data() {
         return {
@@ -167,6 +168,7 @@ export default {
             this.$parent.isformopen = false;
         },
         edit() {
+            useFxStore().loading = true
             this.$parent.getactorstatus = true;
             axios.put('http://127.0.0.1:8000/api/actors/' + this.id,
                 {
@@ -184,6 +186,7 @@ export default {
                     this.AddMovieToActorProfile(this.selectedmovie);
                     this.$parent.getActors();
                     this.$parent.isformopen = false;
+                    useFxStore().loading = false
                 })
         },
         AddMovieToActorProfile(movies) {
