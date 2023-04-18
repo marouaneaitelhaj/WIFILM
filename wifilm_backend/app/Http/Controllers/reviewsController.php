@@ -102,6 +102,6 @@ class reviewsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        reviews::where('id', $id)->delete();
     }
 }
