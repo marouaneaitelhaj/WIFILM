@@ -1,7 +1,7 @@
 <template>
     <div
-        class="fixed  drop-shadow-2xl top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
-        <div class=" bg-white mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        class="fixed  drop-shadow-2xl top-0 left-0  right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
+        <div class=" bg-white mx-auto max-w-screen-xl px-4 py-10 sm:px-6 lg:px-8">
             <div class="flex justify-end" @click="close">
                 <i class="left-0 fa-solid text-xl fa-xmark"></i>
             </div>
@@ -63,9 +63,9 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="m-4">
+                    <div class="m-4 h-7 overflow-auto flex flex-wrap justify-center">
                         <span v-for="genre in genres" @click="AddGenre(genre)"
-                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-green-700">
+                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 mb-1 text-sm text-green-700 truncate">
                             {{ genre.name }}
                         </span>
                     </div>

@@ -1,12 +1,12 @@
 <template>
     <div
         class="fixed drop-shadow-2xl top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
-        <div class="w-3/6 bg-white mx-auto max-w-screen-xl px-2 py-10 sm:px-6 lg:px-8">
+        <div class="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-white mx-auto max-w-screen-xl px-2 py-10 sm:px-6 lg:px-8 max-md:w-10/12">
             <div class="flex justify-end" @click="close">
                 <i class="left-0 fa-solid text-xl fa-xmark"></i>
             </div>
             <div class="mx-auto max-w-lg text-center">
-                <h1 class="text-2xl font-bold sm:text-3xl">Add movie information!</h1>
+                <h1 class="text-2xl font-bold">Add movie information!</h1>
 
             </div>
             <div action="" class="mx-auto mt-8 mb-0 max-w-md space-y-4">
@@ -52,10 +52,12 @@
                 </div>
                 <div>
                     <div class="relative">
-                        <span v-for="genre in selectedgenre" @click="DeleteGenre(genre)"
-                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
-                            {{ genre.name }}
-                        </span>
+                        <div class="flex justify-center flex-wrap h-10 overflow-auto">
+                            <span v-for="genre in selectedgenre" @click="DeleteGenre(genre)"
+                                class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
+                                {{ genre.name }}
+                            </span>
+                        </div>
                         <input type="text" v-model="genre"
                             class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                             placeholder="drama , action" />
@@ -68,9 +70,9 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="m-4">
+                    <div class="m-4 flex flex-wrap h-10 overflow-auto justify-center">
                         <span v-for="genre in genres" @click="AddGenre(genre)"
-                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-green-700">
+                            class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 mb-1 text-sm text-green-700">
                             {{ genre.name }}
                         </span>
                     </div>

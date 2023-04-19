@@ -42,7 +42,11 @@ export default {
   <loading v-if="loading" />
   <navbar />
   <RouterView />
-  <ftr />
+  <!-- <ftr /> -->
 </template>
 
-<style scoped></style>
+<style>
+/* * {
+  font-family: 'Times New Roman', Times, serif;
+} */
+</style>

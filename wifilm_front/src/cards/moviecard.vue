@@ -20,7 +20,9 @@
                             {{ averageRate }}
                         </span>
                     </div>
-                    <div class=" text-white text-lg mb-2">{{ name }}</div>
+                    <div class=" text-white text-lg mb-2 w-40">
+                        <p class="truncate">{{ name }}</p>
+                    </div>
                 </div>
             </div>
         </div>
