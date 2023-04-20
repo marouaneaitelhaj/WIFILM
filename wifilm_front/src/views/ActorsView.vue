@@ -1,25 +1,28 @@
 <template>
     <div>
-        <h1>Movies</h1>
         <div class="flex flex-wrap justify-around">
             <div v-for="actor in actors">
                 <actorcard :name="actor.name" :id="actor.id" :description="actor.description" :image="actor.image" />
             </div>
         </div>
+        <pagination v-model="page" :records="500" :per-page="25" @paginate="myCallback"/>
     </div>
 </template>
 <script>
 import actorcard from '../cards/actorcard.vue';
 import { useAuthStore } from '@/stores/auth'
 import { useFxStore } from '@/stores/fx'
+import Pagination from 'v-pagination-3';
 
 export default {
     components: {
-        actorcard
+        actorcard,
+        Pagination
     },
     data() {
         return {
-            actors: []
+            actors: [],
+            page: 1
         }
     },
     mounted() {
@@ -32,7 +35,7 @@ export default {
         })
 
             .then(response => {
-                this.actors = response.data;
+                this.actors = response.data.data;
             })
             .catch(error => {
                 console.log(error);

@@ -12,8 +12,7 @@ class ActorsController extends Controller
      */
     public function index()
     {
-        $actors = actors::with('movies')->get();
-        return response()->json($actors, 200);
+        return actors::with('movies')->paginate(10);
     }
 
     /**
