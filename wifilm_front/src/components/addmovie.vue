@@ -1,6 +1,5 @@
 <template>
-    <div
-        class="fixed drop-shadow-2xl top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
+    <div class="fixed drop-shadow-2xl top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden   flex flex-col items-center justify-center">
         <div class="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 bg-white mx-auto max-w-screen-xl px-2 py-10 sm:px-6 lg:px-8 max-md:w-10/12">
             <div class="flex justify-end" @click="close">
                 <i class="left-0 fa-solid text-xl fa-xmark"></i>
@@ -52,7 +51,7 @@
                 </div>
                 <div>
                     <div class="relative">
-                        <div class="flex justify-center flex-wrap h-10 overflow-auto">
+                        <div class="flex justify-center flex-wrap max-h-10 overflow-auto">
                             <span v-for="genre in selectedgenre" @click="DeleteGenre(genre)"
                                 class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
                                 {{ genre.name }}
@@ -70,7 +69,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="m-4 flex flex-wrap h-10 overflow-auto justify-center">
+                    <div class="m-4 flex flex-wrap max-h-10 overflow-auto justify-center">
                         <span v-for="genre in genres" @click="AddGenre(genre)"
                             class=" whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 mb-1 text-sm text-green-700">
                             {{ genre.name }}
