@@ -12,7 +12,11 @@ class ActorsController extends Controller
      */
     public function index()
     {
-        return actors::with('movies')->paginate(10);
+        return actors::with('movies')->paginate(8);
+    }
+    public function DashboardActors()
+    {
+        return actors::paginate(10);
     }
 
     /**

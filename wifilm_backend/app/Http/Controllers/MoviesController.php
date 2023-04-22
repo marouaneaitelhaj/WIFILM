@@ -13,40 +13,11 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $page = $_GET['page'];
-        $genre = $_GET['genre'];
-        if($genre == 0){
-            $allMovies = movies::all();
-            $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
+        $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
                 ->with('reviews')
-                ->with('genres')
                 ->orderByDesc('avg_rating')
-                ->offset(($page - 1) * 12)
-                ->limit(12)
-                ->get();
-        }else{
-            $allMovies = movies::whereHas('genres', function ($query) use ($genre) {
-                $query->where('genres_id', $genre);
-            })->get();
-            $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
-                ->with('reviews')
-                ->with('genres')
-                ->whereHas('genres', function ($query) use ($genre) {
-                    $query->where('genres_id', $genre);
-                })
-                ->orderByDesc('avg_rating')
-                ->offset(($page - 1) * 12)
-                ->limit(12)
-                ->get();
-        }
-        return response()->json(
-            [
-                'movies' => $movies,
-                'all' => ceil(count($allMovies) / 12),
-                'page' => $page
-            ],
-            200
-        );
+                ->paginate(12);
+        return response()->json($movies, 200);
     }
     public function searshformovies($text)
     {
@@ -92,6 +63,6 @@ class MoviesController extends Controller
     }
     public function DashboardMovies()
     {
-        return movies::with('genres')->get();
+        return movies::with('genres')->paginate(15);
     }
 }

@@ -11,6 +11,8 @@
     "@cloudinary/url-gen": "^1.9.2",
     "@cloudinary/vue": "^1.11.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@hennge/vue3-pagination": "^1.0.17",
+    "@ocrv/vue-tailwind-pagination": "^0.0.4",
     "@vueuse/core": "^9.13.0",
     "chart.js": "^4.2.1",
     "flowbite": "^1.6.4",

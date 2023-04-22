@@ -14,6 +14,10 @@ class GenreController extends Controller
     {
         return genres::all();
     }
+    public function DashboardGenres()
+    {
+        return genres::paginate(10);
+    }
 
     /**
      * Store a newly created resource in storage.

@@ -37,6 +37,8 @@ Route::post('AdminLogin', [adminsController::class, 'login']);
     Route::apiResource('genres', GenreController::class);
 Route::apiResource('movies', MoviesController::class);
 Route::get('DashboardMovies', [MoviesController::class, 'DashboardMovies']);
+Route::get('DashboardActors', [ActorsController::class, 'DashboardActors']);
+Route::get('DashboardGenres', [GenreController::class, 'DashboardGenres']);
 Route::apiResource('actors', ActorsController::class);
 Route::get('searshformovies/{text}', [MoviesController::class, 'searshformovies']);
 Route::middleware('auth:sanctum')->group(
