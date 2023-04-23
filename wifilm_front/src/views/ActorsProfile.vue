@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-import moviecard from '../cards/moviecard.vue'
+import moviecard from '../cards/moviecardActor.vue'
 export default {
     data() {
         return {

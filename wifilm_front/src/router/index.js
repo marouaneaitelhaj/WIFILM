@@ -22,9 +22,10 @@ const router = createRouter({
 
     },
     {
-      path: '/Movies',
+      path: '/Movies:genre?',
       name: 'movies',
       component: () => import('../views/MoviesView.vue'),
+      props: route => ({ genre: route.params.genre })
     },
     {
       path: '/Movies/:id',

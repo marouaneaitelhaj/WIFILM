@@ -92,6 +92,9 @@ export default {
     VPagination,
     search,
   },
+  props: {
+    genre: Number,
+  },
   data() {
     return {
       movies: {},
@@ -117,7 +120,7 @@ export default {
         this.divVisible = !this.divVisible;
       }
     },
-    getMovies(page = 1, genre = 0) {
+    getMovies(page = 1, genre = this.genre || 0) {
       this.SelectedGenre = genre;
       useFxStore().loading = true;
       axios
