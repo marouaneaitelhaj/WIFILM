@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\genres;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class GenreController extends Controller
 {
@@ -16,7 +18,9 @@ class GenreController extends Controller
     }
     public function DashboardGenres()
     {
-        return genres::paginate(10);
+        return genres::
+            select('genres.*', DB::raw("(SELECT image FROM movies WHERE movies.id = (SELECT movies_id FROM genres_movies WHERE genres_id = genres.id ORDER BY RAND() LIMIT 1)) as movie_image"))
+        ->paginate(10);
     }
 
     /**
@@ -26,12 +30,10 @@ class GenreController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:3',
-            'image' => 'required',
             'description' => 'required|min:3',
         ]);
         $genres = new genres();
         $genres->name = $request->name;
-        $genres->image = $request->image;
         $genres->description = $request->description;
         $genres->save();
     }
@@ -56,11 +58,9 @@ class GenreController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'image' => 'required',
         ]);
         $genres = genres::find($id);
         $genres->name = $request->name;
-        $genres->image = $request->image;
         $genres->description = $request->description;
         $genres->save();
     }

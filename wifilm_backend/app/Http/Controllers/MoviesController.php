@@ -13,10 +13,22 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
+        $genre = $_GET['genre'];
+        if ($genre == '0') {
+            $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
                 ->with('reviews')
                 ->orderByDesc('avg_rating')
                 ->paginate(12);
+        } else {
+            $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
+                ->with('reviews')
+                ->whereHas('genres', function ($query) use ($genre) {
+                    $query->where('genres_id', $genre);
+                })
+                ->orderByDesc('avg_rating')
+                ->paginate(12);
+        }
+        
         return response()->json($movies, 200);
     }
     public function searshformovies($text)

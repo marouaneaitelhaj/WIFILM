@@ -4,11 +4,7 @@
     <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
       <thead>
         <tr>
-          <th
-            class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
-          >
-            Image
-          </th>
+          
           <th
             class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
           >
@@ -25,15 +21,7 @@
 
       <tbody class="divide-y divide-gray-200">
         <tr v-for="genre in genres" class="max-w-2xl">
-          <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-            <div class="h-32 w-32 rounded-lg overflow-hidden shadow-md">
-              <img
-                :src="genre.image"
-                alt="Image"
-                class="w-full h-full object-cover"
-              />
-            </div>
-          </td>
+          
           <td class="whitespace-nowrap px-4 py-2 text-gray-700">
             {{ genre.name }}
           </td>
