@@ -1,12 +1,13 @@
 <template>
   <div class=" flex justify-center flex-wrap">
-    <RouterLink v-for="genre in genres.data" class="h-64 w-1/2 relative  flex justify-center flex-wrap"
+    <RouterLink @mouseover="hover(genre.id)" @mouseleave="hover(0)" v-for="genre in genres.data" class="h-64 m-3 w-1/2 relative  flex justify-center flex-wrap"
       :to="{ name: 'movies', params: { genre: genre.id } }">
       <img :src="genre.movie_image"
-        class="max-h-full w-full object-cover brightness-25 hover:brightness-100 transition duration-500 ease-in-out"
+        class="max-h-full w-full object-cover brightness-100 hover:brightness-25 transition duration-500 ease-in-out"
         alt="" />
-      <div class="flex justify-center bottom-0 pb-10 absolute flex-col">
-        <p class="text-white text-lg font-semibold">{{ genre.name }}</p>
+      <div class="flex justify-center bottom-0 top-0 absolute flex-col">
+        <p v-if="description !== genre.id" class=" text-white text-lg font-semibold">{{ genre.name }}</p>
+          <p v-if="description == genre.id" class="text-white text-lg font-light">{{ genre.description }}</p>
       </div>
     </RouterLink>
   </div>
@@ -22,7 +23,7 @@ export default {
       genres: [],
       page: 1,
       pages: 1,
-      description: false,
+      description: 0,
     };
   },
   components: {
@@ -32,6 +33,9 @@ export default {
     this.getGenres();
   },
   methods: {
+    hover(e){
+      this.description = e
+    },
     getGenres() {
       axios
         .get("http://127.0.0.1:8000/api/DashboardGenres", {
