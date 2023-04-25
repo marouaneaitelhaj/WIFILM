@@ -16,7 +16,7 @@
                     <div class="relative">
                         <input type="text" v-model="name"
                             class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                            placeholder="name of movie" />
+                            placeholder="name of genre" />
 
                         <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
@@ -31,7 +31,7 @@
                     <div class="relative">
                         <input type="text" v-model="description"
                             class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                            placeholder="Description of movie" />
+                            placeholder="Description of genre" />
 
                         <span class="absolute inset-y-0 right-0 grid place-content-center px-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"

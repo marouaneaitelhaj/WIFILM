@@ -1,5 +1,5 @@
 <template>
-    <footer class="">
+    <footer class="bg-black">
         <div class="w-full flex py-5 items-center justify-around">
             <div>
                 <h1 class="text-3xl  font-bold px-4 text-black rounded-md bg-yellow-400">WIFILM</h1>

@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <!-- <div>
         <img class="h-screen w-full object-cover brightness-25   fixed -z-10"
             src="https://www.cheatsheet.com/wp-content/uploads/2022/07/Better-Call-Saul-Lalo-Salamanca.jpg?w=1200" alt="">
-    </div>
+    </div> -->
     <div class="h-96 flex justify-center items-center flex-col">
         <div class=" text-white text-9xl max-sm:text-7xl flex flex-col justify-center items-center  font-bold">
             <div>

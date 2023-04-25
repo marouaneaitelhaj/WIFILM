@@ -2,7 +2,7 @@
   <section class="">
     <video muted class="w-screen h-screen object-cover -z-20 brightness-25 fixed top-0" autoplay>
       <source
-        src="https://imdb-video.media-imdb.com/vi1554367769/1434659607842-pgv4ql-1666270984149.mp4?Expires=1681692616&Signature=bt9Luw35CdW6MNXoA7Ed0ew7km-hy7eM~hwG7nhetbny1q-kI1daPcsY7QQ0ZoS~4lewJ0AXJgTv5OW~-SE1775ap5QlRJLT-6EVD4ve9qRx4qjQ3ijJMDk5I0xMKBZ75nxCrli0v0F8Tt43YCUTEMRL~etj-SNMhAo144wn6MNKrsJ9NqFs2hN1p-DqYTNr0nzNtiyrXSlr6D~hiAHYGSeevl3uAM-5ab~Ax9mNpIlZZkRqqk-dKnOQFp9xaLa6NqNRBMiQxvF06AIUGqmIn6eNCMhwDVgPs3CwgA1aVltpDDDE~NkISYWCJZii~6mO3Z2UQrYEJ~AlT~02xbXDTQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+        src="https://imdb-video.media-imdb.com/vi1034274073/1434659607842-pgv4ql-1666270980393.mp4?Expires=1682499212&Signature=Z~bFYXRBTTltJPhjWZc6Mh388bksSLad07KAZzmwlGu~Jz8bvVAyWRQxZeFoMAWwDquM-0db5~~jTD8u0nkxeBU6CRlO2ztTftHF5QZ-p0UKMwaFPVOUJoE~8k6UuoVGzUaNYWxj9WEId~DQkFFTPG4oEnoa6N7wTw5tk5FMhtR50QCIhrJZLZfHxEgp0FEjj1k205jNJ-6jMxIBioV2yvnY1nkT2Od4WiQ2vhm~Ofl6TTofpw7A6sTn7-rjM7MyxNkYanAwbVT6QsHJtACkzOOtcIyA8CrijZLGPrFIqCaKFgGG9s1Ycg0oK5K5RZWJ9wCUqoKFrWtaLMXGhzl3-g__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
         type="video/mp4">
     </video>
     <div class="mx-auto  max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
@@ -53,9 +53,15 @@
       </div>
     </div>
   </div>
+  <ftr />
 </template>
 <script>
+import ftr from '@/components/footer.vue'
+
 export default {
+  components: {
+    ftr
+  },
   data() {
     return {
       firstMovie: '',

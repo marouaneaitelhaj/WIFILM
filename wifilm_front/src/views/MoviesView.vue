@@ -77,8 +77,11 @@
     />
 </div>
   </div>
+  <ftr />
 </template>
 <script>
+import ftr from '@/components/footer.vue'
+
 import MovieCard from "@/cards/movieCard.vue";
 import { useAuthStore } from "@/stores/auth";
 import pagination from "@/components/pagination.vue";
@@ -91,6 +94,7 @@ export default {
     MovieCard,
     VPagination,
     search,
+    ftr,
   },
   props: {
     genre: Number,

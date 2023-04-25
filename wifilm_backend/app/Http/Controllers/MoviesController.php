@@ -18,7 +18,7 @@ class MoviesController extends Controller
             $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
                 ->with('reviews')
                 ->orderByDesc('avg_rating')
-                ->paginate(10);
+                ->paginate(12);
         } else {
             $movies = movies::select('movies.*', DB::raw("(SELECT AVG(review) FROM reviews WHERE movies_id = movies.id) as avg_rating"))
                 ->with('reviews')
@@ -26,7 +26,7 @@ class MoviesController extends Controller
                     $query->where('genres_id', $genre);
                 })
                 ->orderByDesc('avg_rating')
-                ->paginate(10);
+                ->paginate(12);
         }
         
         return response()->json($movies, 200);

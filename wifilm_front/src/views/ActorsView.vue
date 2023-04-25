@@ -20,6 +20,7 @@
     @update:modelValue="getActors"
   />
   </div>
+  <ftr />
 </template>
 <script>
 import actorcard from "../cards/actorcard.vue";
@@ -27,11 +28,13 @@ import { useAuthStore } from "@/stores/auth";
 import { useFxStore } from "@/stores/fx";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
+import ftr from '@/components/footer.vue'
 
 export default {
   components: {
     actorcard,
     VPagination,
+    ftr,
   },
   data() {
     return {

@@ -3,16 +3,19 @@
     <RouterLink @mouseover="hover(genre.id)" @mouseleave="hover(0)" v-for="genre in genres.data" class="h-64 m-3 w-1/2 relative  flex justify-center flex-wrap"
       :to="{ name: 'movies', params: { genre: genre.id } }">
       <img :src="genre.movie_image"
-        class="max-h-full w-full object-cover brightness-100 hover:brightness-25 transition duration-500 ease-in-out"
+        class="max-h-full w-full object-cover brightness-50 hover:brightness-25 transition duration-500 ease-in-out"
         alt="" />
       <div class="flex justify-center bottom-0 top-0 absolute flex-col">
         <p v-if="description !== genre.id" class=" text-white text-lg font-semibold">{{ genre.name }}</p>
-          <p v-if="description == genre.id" class="text-white text-lg font-light">{{ genre.description }}</p>
+          <p v-if="description == genre.id" class="text-white mx-20 text-lg font-light">{{ genre.description }}</p>
       </div>
     </RouterLink>
   </div>
+  <ftr />
 </template>
 <script>
+import ftr from '@/components/footer.vue'
+
 import { RouterLink, RouterView } from "vue-router";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
@@ -28,6 +31,7 @@ export default {
   },
   components: {
     VPagination,
+    ftr
   },
   mounted() {
     this.getGenres();

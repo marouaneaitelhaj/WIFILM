@@ -42,6 +42,11 @@
                   About
                 </RouterLink>
               </li>
+              <li v-if="isAddmin">
+                <RouterLink class="text-white mb-8 transition hover:text-yellow-400" :to="{ name: 'admin' }">
+                  Admin
+                </RouterLink>
+              </li>
             </ul>
           </nav>
 
@@ -124,6 +129,11 @@
               Register
             </RouterLink>
           </li>
+          <li class="" v-if="isAddmin">
+            <RouterLink class="text-white mb-8 transition hover:text-yellow-400" :to="{ name: 'admin' }">
+              Admin
+            </RouterLink>
+          </li>
         </ul>
       </nav>
     </div>
@@ -146,6 +156,14 @@ export default {
     }
   },
   computed: {
+    isAddmin() {
+      const authStore = useAuthStore();
+      if (authStore.role === "admin") {
+        return true;
+      } else {
+        return false;
+      }
+    },
     isAuth() {
       const authStore = useAuthStore();
       if (authStore.token !== null) {

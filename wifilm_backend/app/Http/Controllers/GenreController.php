@@ -19,7 +19,7 @@ class GenreController extends Controller
     public function DashboardGenres()
     {
         return genres::
-            select('genres.*', DB::raw("(SELECT image FROM movies WHERE movies.id = (SELECT movies_id FROM genres_movies WHERE genres_id = genres.id ORDER BY RAND() LIMIT 1)) as movie_image"))
+            select('genres.*', DB::raw("(SELECT image FROM movies WHERE movies.id = (SELECT movies_id FROM genres_movies WHERE genres_id = genres.id LIMIT 1)) as movie_image"))
         ->paginate(10);
     }
 
